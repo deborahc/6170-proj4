@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111235723) do
+ActiveRecord::Schema.define(version: 20131112001340) do
+
+  create_table "applications", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "posting_id"
+    t.integer  "student_id"
+    t.text     "message"
+  end
 
   create_table "postings", force: true do |t|
     t.datetime "created_at"
