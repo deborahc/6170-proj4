@@ -1,2 +1,2 @@
-class Supervisor < ActiveRecord::Base
+class Supervisor < User
 end
