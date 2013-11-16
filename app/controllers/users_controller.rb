@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    #users = user_type.all
     @users = User.all
   end
 
@@ -14,7 +15,10 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = user_type.new
+    logger.info user_type.new
+    return @user
+    #@user = User.new
   end
 
   # GET /users/1/edit
@@ -24,7 +28,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = user_type.new(user_params)
+
+    #@user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -69,6 +75,16 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params[:user]
+      params.require(user_type_string).permit(:first_name, :last_name, :email, :year, :type)
     end
+
+    def user_type
+      params[:type].constantize
+    end
+
+    def user_type_string
+      params[:type].downcase
+    end
+    helper_method :user_type_string
+
 end

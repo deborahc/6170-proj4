@@ -1,13 +1,20 @@
 NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   resources :users
 
+
+
+
+
   resources :reviews
 
-  resources :supervisors
+  #resources :supervisors
 
-  resources :students
+  #resources :students
 
   resources :postings
+
+  resources :students, :controller => 'users', :type => 'Student'
+  resources :supervisors, :controller => 'users', :type => 'Supervisor'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
