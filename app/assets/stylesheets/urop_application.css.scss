@@ -1,0 +1,19 @@
+// Place all the styles related to the urop_application controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+form{
+	margin: auto;
+	width: 40%;
+}
+textarea{
+	height: 250px;
+	width:430px;
+}
+#submit_button{
+	float: right;
+}
+#back_button{
+	margin-right: 10px;
+	float: right;
+}

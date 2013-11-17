@@ -1,4 +1,7 @@
 class Student < User
+<<<<<<< HEAD
+	has_many reviews
+=======
 	has_many :urop_applications
-	has_many :reviews
+>>>>>>> master
 end

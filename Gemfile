@@ -33,7 +33,11 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
+
+gem 'bootstrap-sass', '2.3.2.0'
+
+gem 'rest-client'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -43,3 +47,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
