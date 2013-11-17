@@ -1,20 +1,23 @@
 NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   resources :users
 
-
-
-
-
   resources :reviews
 
-  #resources :supervisors
-
-  #resources :students
 
   resources :postings
+  
+  resources :urop_applications
 
   resources :students, :controller => 'users', :type => 'Student'
   resources :supervisors, :controller => 'users', :type => 'Supervisor'
+  resources :sessions
+
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+
+  root :to => "welcome#landing"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

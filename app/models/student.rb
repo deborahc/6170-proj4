@@ -1,3 +1,3 @@
 class Student < User
-	has_many :applications
+	has_many :urop_applications
 end

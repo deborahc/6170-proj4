@@ -1,0 +1,11 @@
+<%= form_for(@urop_application) do |f| %>
+  
+  <div class="field">
+    <%= f.label :message %>
+    <%= f.text_area :message %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
