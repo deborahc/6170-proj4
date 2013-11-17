@@ -1,0 +1,30 @@
+
+		
+<html>
+<br></br>
+<h1 class="centerize">Welcome to urop.io!</h1>
+
+<br>
+<body>
+
+	<div class="centerize" style="float:center;">
+
+	<%= form_tag sessions_path do %>
+		<%= text_field_tag :email, params[:email], placeholder: "Email address" %>
+		<%= password_field_tag :password, nil, placeholder: "Password", :id => 'password-field' %>
+		<%= submit_tag "Log in", :class => 'btn btn-large btn-primary', :id => 'login-btn'%>
+		<% end %>
+	</div>
+	<div class="centerize" style="float:center;">
+		<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>
+	</div>
+
+		<div class="centerize" style="float:center;">
+		<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary', :method => :get) %>
+	</div>
+
+
+</body>
+</html>
+
+

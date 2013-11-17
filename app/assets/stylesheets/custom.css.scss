@@ -116,7 +116,7 @@ login form {
 #landing-container {
 	width: 600px;
 	height: 200px;
-	background-color: #eee;
+	background-color: #fff;
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
@@ -166,62 +166,11 @@ body, html, .container, .row {
 	color: white;
 }
 
-#events-left {
-	float: left;
-	/*width: 75%;*/
-	height: 400px;
-	padding-left: 5%;
-	padding-right: 5%;
-	padding-top: 10px;
-}
-
-#events-right {
-	background-color: #eee;
-	width: 256px;
-	position: fixed;
-	/*height: 400px;*/
-	right: 0;
-	top: 40px;
-	bottom: 0;
-	padding-top: 0px;
-	/*padding-left: 10px;*/
-
-	.my-btn {
-		width: 90%;
-		margin-left: 5%;
-		margin-right: 5%;
-		margin-bottom: 0px;
-	}
-
-	form {
-		margin-bottom: 7px;
-	}
-	
-}
-
-#owe-text {
-	margin-bottom: 0px;
-}
-
-#owed-text {
-	margin-top: 0px;
-}
-
 .my-h2 {
 	margin-left: 5%;
 	font-family: arial;
 	font-size: 20px;
 	margin-right: 10%;
-}
-
-#total-debt {
-	color: red;
-	float: right;
-}
-
-#total-credit {
-	color: green;
-	float: right;
 }
 
 .my-navbar {
@@ -248,78 +197,3 @@ a.brand {
 	}
 }
 
-th {
-	font-family: helvetica;
-	font-size: 12px;
-}
-
-.description {
-	color: gray;
-	font-family: helvetica;
-	font-size: 10px;
-}
-
-.event-name {
-	font-size: 16px;
-	width: 200px;
-}
-
-.event-table {
-	form {
-		/*margin-bottom: 0px;*/
-	}
-
-	.button_to {
-		width: 20px;
-		height: 20px;
-		margin: 0px;
-		margin-right: 5px;
-	}
-	tr {
-		max-width: 400px;
-		min-width: 200px;
-	}
-	td {
-		padding: 3px;
-		vertical-align: middle;
-	}
-
-	.event-row-text {
-		padding-top: 5px;
-		text-align: right;
-		width: 99%;
-		p {
-			vertical-align: middle;
-		}
-			font-size: 18px;
-	}
-
-	.event-row-actions {
-		a {
-			color: green;
-			&:hover{
-				text-decoration: none;
-			}
-
-			i {
-				&:hover {
-					color: #2a2;
-				}
-			}
-		}
-	}
-}
-
-.debt-text {
-	color: red;
-}
-
-.credit-text {
-	color: green;
-}
-
-
-
-.table {
-	width: 600px;
-}
