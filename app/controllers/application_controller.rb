@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 	def require_login
 		unless current_user
 			flash[:error] = "You must be logged in to access this section"
-			redirect_to log_in_url
+			redirect_to login_url
 		end
 	end
 

@@ -26,4 +26,17 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # settings for the mailgun api
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox1152.mailgun.org",
+    :user_name => "postmaster@sandbox1152.mailgun.org",
+    :password => APP_CONFIG['smtp_password']
+  }
 end
