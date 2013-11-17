@@ -1,11 +1,20 @@
-<%= form_for(@urop_application) do |f| %>
+<%= form_for([@posting,@urop_application]) do |f| %>
+
+  <div class="form-group">
+    <label>Subject</label>
+    <input> 
+  </div>
   
-  <div class="field">
-    <%= f.label :message %>
+  <%= f.hidden_field :posting_id, :value=>params[:id] %>
+  <%= f.hidden_field :student_id, :value=>current_user.id %>
+
+  <div class="field form-group">
+    <%= f.label :message %> <p> This will be sent as a copy to the supervisor's email mailbox </p>
     <%= f.text_area :message %>
   </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit application", :class=>"btn btn-default", :id=> "submit_button"%>
+    <%= button_to "Back", postings_path, :class=>"btn btn-default", :id=> "back_button" %>
   </div>
 <% end %>

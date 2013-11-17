@@ -4,9 +4,9 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   resources :reviews
 
 
-  resources :postings
-  
-  resources :urop_applications
+  resources :postings do
+    resources :urop_applications
+  end
 
   resources :students, :controller => 'users', :type => 'Student'
   resources :supervisors, :controller => 'users', :type => 'Supervisor'
