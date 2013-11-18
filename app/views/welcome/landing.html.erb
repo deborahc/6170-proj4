@@ -15,16 +15,26 @@
 <div class="form-group">
 	<%= password_field_tag :password, nil, placeholder: "Password", :id => 'password-field' %>
 </div>
-<div class="form-group">
+<br>
+<br>
+<br>
+
 	<%= submit_tag "Log in", :class => 'btn btn-large btn-primary', :id => 'login-btn'%>
 </div>
 <% end %>
 <div class="actions" id="sign_up_buttons">
+	<div style="float:left;">
+
 	<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>
+	 </div>
+
+	<div style="float:left;">
 	<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary', :method => :get) %>
+	</div>
 </div>
 
 </body>
 </html>
+
 
 
