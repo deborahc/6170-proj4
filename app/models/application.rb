@@ -16,5 +16,6 @@ class Application < ActiveRecord::Base
 	end
 
 	helper_method :current_user
+	helper_method :require_login
 
 end
