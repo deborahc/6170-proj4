@@ -17,9 +17,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
     if params[:type] == 'Student'
       render :action => 'show_student'
     elsif params[:type] == 'Supervisor'
+
       render :action => 'show_supervisor'
     end
   end

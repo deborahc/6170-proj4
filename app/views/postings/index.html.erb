@@ -1,7 +1,10 @@
 <h1>UROP postings</h1>
 
 <% if current_user.type == 'Supervisor' %>
-<%= link_to 'New Posting', new_posting_path %>
+<%= link_to 'New Posting', new_posting_path %><br>
+<%= link_to 'View My Postings', urop_applications_path %>
+<% elsif current_user.type == 'Student' %>
+<%= link_to 'View Your Applications', urop_applications_path %>
 <% end %>
 
 <%= form_tag postings_path, :method => 'get', :id => "postings_search" do %>

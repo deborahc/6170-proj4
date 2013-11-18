@@ -19,7 +19,7 @@
 	<%= submit_tag "Log in", :class => 'btn btn-large btn-primary', :id => 'login-btn'%>
 </div>
 <% end %>
-<div class="actions">
+<div class="actions" id="sign_up_buttons">
 	<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>
 	<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary', :method => :get) %>
 </div>

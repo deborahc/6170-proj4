@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <div class="profileHeader">
-	<h2>Welcome <%= current_user.first_name %></h2>
 	<br></br>
 	<div class="profileInfo">
-		<h4>About me</h4>
-		<h5>Major: <%= current_user.major %></h5>
-		<h5>Year: <%= current_user.year %></h5>
-		<h5>Email Address: <%= current_user.email %></h5>
+		<h4>About <%=@user.first_name %></h4>
+		<h5>Major: <%= @user.major %></h5>
+		<h5>Year: <%= @user.year %></h5>
+		<h5>Email Address: <%= @user.email %></h5>
 	</div>
 </div>
 
