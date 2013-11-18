@@ -1,7 +1,7 @@
 <%= link_to 'New UROP Posting', new_posting_path, :style=>"margin:20px;" %><br>
 <%= link_to 'View all Postings', postings_path, :style=>"margin:20px" %>
 
-<center><h3><%=current_user.first_name%>'s UROP postings</h3></center>
+<center><h3><%=current_user.first_name+" "+current_user.last_name%>'s UROP postings</h3></center>
 
 <% current_user.postings.each_slice(3) do |slice| %>
   <div class="row-fluid">
