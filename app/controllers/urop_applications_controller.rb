@@ -1,8 +1,20 @@
 class UropApplicationsController < ApplicationController
 
+
+	def index
+		if current_user.type == 'Student'
+			redirect_to student_application_index_path
+		elsif current_user.type == 'Supervisor'
+			redirect_to supervisor_application_index_path
+		else 
+			redirect_to user_path(current_user.id)
+		end
+
+	end
+
 	def new
 		@urop_application = UropApplication.new
-		@posting = Posting.find_by(params[:id])
+		logger.info params
 	end
 
 	def show
@@ -10,7 +22,6 @@ class UropApplicationsController < ApplicationController
 
 	def create
 		@urop_application = UropApplication.new(application_params)
-		@posting = Posting.find_by(params[:id])
 		@urop_application.student = current_user
 		@urop_application.posting = @posting
 		respond_to do |format|
@@ -22,25 +33,18 @@ class UropApplicationsController < ApplicationController
 		end
 	end
 
-	def student_application
-		if current_user.type == "Supervisor"
-			@postings = current_user.postings
-		else
-			redirect_to user_path(current_user.id)
-		end
+	def supervisor_application_index
+		@urop_applications = current_user.urop_applications
 	end
 
-	def view_application
-		if current_user.type = "Student"
-			@urop_applications = current_user.urop_applications
-		else
-			redirect_to user_path(current_user.id)
-		end
+
+	def student_application_index
+		@urop_applications = current_user.urop_applications
 	end
 
 	private
 
 	def application_params
-		params.require(:urop_application).permit(:message)
+		params.require(:urop_application).permit(:message, :supervisor_id, :posting_id, :student_id)
 	end
 end

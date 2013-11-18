@@ -1,0 +1,11 @@
+<ul>
+<% current_user.postings.each do |posting| %>
+	<li><%= posting.title %></li>
+	<li><%= posting.description %></li>
+	<ul>
+	<% posting.urop_applications.each do |application| %>
+		<li><%= application.message %></li>
+	<% end %>
+	</ul>
+<% end %>
+</ul>
