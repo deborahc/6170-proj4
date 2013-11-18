@@ -127,14 +127,6 @@ class UsersController < ApplicationController
           #Redirect to user's own profile
           redirect_to student_path(current_user.id), :notice => "You can't access this page"
         end
-      elsif current_user.type == 'Supervisor'
-        # Only allow supervisors to see all supervisor profiles, and profiles of students who have submitted
-        # an application for their postings
-        unless @user.type == 'Supervisor' #
-          redirect_to supervisor_path(current_user.id), :notice => "You can't access this page"
-        end
-      end
     end
-
 end
 
