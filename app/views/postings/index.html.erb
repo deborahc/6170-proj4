@@ -1,25 +1,14 @@
-<h1>Listing postings</h1>
+<h1>UROP postings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @postings.each do |posting| %>
-      <tr>
-        <td><%= link_to 'Show', posting %></td>
-        <td><%= link_to 'Edit', edit_posting_path(posting) %></td>
-        <td><%= link_to 'Destroy', posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+<% if current_user.type == 'Supervisor' %>
 <%= link_to 'New Posting', new_posting_path %>
+<% end %>
+
+<%= form_tag postings_path, :method => 'get', :id => "postings_search" do %>
+  <h2>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </h2>
+<% end %>
+
+<div id="postings"><%= render 'allpostings' %></div>

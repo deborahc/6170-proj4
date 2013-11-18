@@ -55,7 +55,9 @@ class UsersController < ApplicationController
         # Sends a welcome email if the user account is successfully created
         #UserMailer.welcome_email(@user).deliver
         session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+
+
+        format.html { redirect_to postings_path, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }

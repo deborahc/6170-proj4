@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+
+  $("#postings_search input").keyup(function() {
+    $.get($("#postings_search").attr("action"), $("#postings_search").serialize(), null, "script");
+    return false;
+  });
+});
