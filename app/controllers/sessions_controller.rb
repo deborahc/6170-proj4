@@ -10,8 +10,11 @@ class SessionsController < ApplicationController
 			session[:user_id] = user.id
 			flash[:success] = "Logged in"
 
-			
-			redirect_to users_path  
+			if user.type == 'Student'
+				redirect_to postings_path  
+			elsif user.type == 'Supervisor'
+				redirect_to urop_applications_path
+			end
 		else
 			logger.info 'incorrect'
 			redirect_to :back, :notice => "Invalid email or password"
