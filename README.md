@@ -1,6 +1,6 @@
 UROP.io
 
-6.170 Project 4: Phase 1
+6.170 Project 4: Phase 2
 
 Authors: Dwyane George, Deborah Chen, Yi-Shiuan Tung, Naim Lujan
 Heroku URL: http://uropio.herokuapp.com

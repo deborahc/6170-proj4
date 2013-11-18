@@ -22,6 +22,22 @@ class UropApplicationsController < ApplicationController
 		end
 	end
 
+	def student_application
+		if current_user.type == "Supervisor"
+			@postings = current_user.postings
+		else
+			redirect_to user_path(current_user.id)
+		end
+	end
+
+	def view_application
+		if current_user.type = "Student"
+			@urop_applications = current_user.urop_applications
+		else
+			redirect_to user_path(current_user.id)
+		end
+	end
+
 	private
 
 	def application_params
