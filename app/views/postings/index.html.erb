@@ -1,26 +1,35 @@
 <h1>Listing postings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @postings.each do |posting| %>
-      <tr>
-        <td><%= link_to 'Show', posting %></td>
-        <td><%= link_to 'Edit', edit_posting_path(posting) %></td>
-        <td><%= link_to 'Destroy', posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Apply Now', new_urop_application_path(:posting_id => posting.id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+<% if current_user.type == 'Supervisor' %>
 <%= link_to 'New Posting', new_posting_path %>
+<% end %>
+
+<% @postings.each_slice(3) do |slice| %>
+  <div class="row-fluid">
+  <% slice.each do |posting| %>
+  <div class="span4">
+    <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
+    <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
+    <p>Project description: <%= posting.description %></p>
+    <p>Skills: <%= posting.skills %></p>
+    <p>Funding type: <%= posting.funding_type %></p>
+
+
+    <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
+    <% if posting.supervisor_id == current_user.id %>
+      <div style="float:left;">
+        <%= button_to( 'Delete', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
+      </div>
+
+          <div style="float:left;">
+      <%= button_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
+    </div>
+    <% end %>
+    <% if current_user.type == 'Student' %>
+    <%= link_to 'Apply Now', new_urop_application_path(:posting_id => posting.id) %>
+    <%end %>
+
+  </div>
+  <% end %><!--/span-->
+</div>
+<% end %>
