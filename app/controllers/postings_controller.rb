@@ -1,6 +1,9 @@
 class PostingsController < ApplicationController
   before_action :set_posting, only: [:show, :edit, :update, :destroy]
 
+
+  before_action :check_owner, only: [:edit, :update, :destroy]
+  before_action :can_create, only: [:new, :create]
   # GET /postings
   # GET /postings.json
   def index
@@ -71,5 +74,19 @@ class PostingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def posting_params
       params.require(:posting).permit(:title, :description, :skills, :funding_type, :supervisor_id)
+    end
+
+    # Only supervisors can view, update or delete postings they own
+    def check_owner
+      unless @posting.supervisor_id == current_user.id
+          redirect_to postings_path, :notice => "You can't access this page"
+      end
+    end
+
+    # Only supervisors can create postings
+    def can_create
+      unless current_user.type == 'Supervisor'
+        redirect_to postings_path, :notice => "You can't make UROP postings"
+      end
     end
 end

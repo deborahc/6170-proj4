@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
 
   #only owners of a user account may edit or delete their accounts
-  before_action :check_owner, only: [:edit, :update, :destroy]
+   before_action :check_owner, only: [:edit, :update, :destroy]
   before_action :check_access, only: [:show]
 
 
