@@ -1,4 +1,7 @@
 class UropApplicationsController < ApplicationController
+
+	before_action :can_create, only: [:new, :create]
+
 	def index
 		if current_user.type == 'Student'
 			redirect_to student_application_index_path
@@ -42,4 +45,13 @@ class UropApplicationsController < ApplicationController
 	def application_params
 		params.require(:urop_application).permit(:message, :supervisor_id, :posting_id, :student_id)
 	end
+
+    # Only users can create applications
+    def can_create
+      unless current_user.type == 'Student'
+          redirect_to urop_applications_path, :notice => "You can't access this page"
+      end
+    end
+
+
 end
