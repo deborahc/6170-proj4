@@ -1,6 +1,6 @@
 NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   resources :users
-  resources :reviews
+  #resources :reviews
   resources :postings
   resources :urop_applications
 
