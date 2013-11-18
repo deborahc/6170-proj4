@@ -4,7 +4,8 @@ class PostingsController < ApplicationController
   # GET /postings
   # GET /postings.json
   def index
-    @postings = Posting.all
+    @postings = Posting.all.search(params[:search])
+
   end
 
   # GET /postings/1
