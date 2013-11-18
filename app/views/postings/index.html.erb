@@ -17,13 +17,15 @@
 
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
-      <div style="float:left;">
-        <%= button_to( 'Delete', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
-      </div>
+
 
           <div style="float:left;">
       <%= button_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
     </div>
+
+          <div style="float:left;">
+        <%= button_to( 'Delete', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
+      </div>
     <% end %>
     <% if current_user.type == 'Student' %>
     <%= link_to 'Apply Now', new_urop_application_path(:posting_id => posting.id) %>

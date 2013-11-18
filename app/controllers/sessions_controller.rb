@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 			if user.type == 'Student'
 				redirect_to postings_path  
 			elsif user.type == 'Supervisor'
-				redirect_to urop_applications_path
+				redirect_to supervisor_application_index_path
 			end
 		else
 			logger.info 'incorrect'

@@ -1,6 +1,4 @@
 class UropApplicationsController < ApplicationController
-
-
 	def index
 		if current_user.type == 'Student'
 			redirect_to student_application_index_path
@@ -9,12 +7,10 @@ class UropApplicationsController < ApplicationController
 		else 
 			redirect_to user_path(current_user.id)
 		end
-
 	end
 
 	def new
 		@urop_application = UropApplication.new
-		logger.info params
 	end
 
 	def show

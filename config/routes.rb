@@ -2,7 +2,7 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   resources :users
   resources :reviews
   resources :postings
-  resources :urop_applications
+ # resources :urop_applications
 
   resources :students, :controller => 'users', :type => 'Student'
   resources :supervisors, :controller => 'users', :type => 'Supervisor'
@@ -12,8 +12,8 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
 
-  get "/urop_applications" => "urop_applications#student_application_index", :as => "student_application_index"
-  get "/urop_applications" => "urop_applications#supervisor_application_index", :as => "supervisor_application_index"
+  get "/student_applications" => "urop_applications#student_application_index", :as => "student_application_index"
+  get "/supervisor_applications" => "urop_applications#supervisor_application_index", :as => "supervisor_application_index"
 
   root :to => "welcome#landing"
 
