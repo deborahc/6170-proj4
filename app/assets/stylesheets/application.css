@@ -11,3 +11,27 @@
  *= require_self
  *= require_tree .
  */
+
+.homepage {
+	text-align: left;
+	background-image:url('http://www.blogmost.com/wp-content/uploads/2013/09/research-paper.jpg');
+	background-size: 100% auto;
+	height : 100%;
+	width: 100%;
+	margin-top: 40px;
+}
+
+.homeHeader {
+	color: gray;
+}
+
+.profileHeader {
+	margin-right: 200px;
+
+}
+
+.profileInfo {
+	border-style: inset;
+	border-width: medium;
+	width: 50%;
+}

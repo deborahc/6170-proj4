@@ -1,4 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<div class="profileHeader">
+	<h2>Welcome <%= current_user.first_name %></h2>
+	<br></br>
+	<div class="profileInfo">
+		<h4>About me</h4>
+		<h5>Title: <%= current_user.title %></h5>
+		<h5>Lab: <%= current_user.lab %></h5>
+		<h5>Department: <%= current_user.department %></h5>
+		<h5>Email Address: <%= current_user.email %></h5>
+		<h5>Office: <%= current_user.office %></h5>
+	</div>
+</div>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'Back', users_path %>
