@@ -32,7 +32,13 @@
       <%= f.text_field :funding_type %>
     </div>
 
+    <div>
+      <%= f.hidden_field :supervisor_id, value: current_user.id %>
+    </div>
+
+
   <div class="actions">
     <%= f.submit "Submit New Posting"%>
   </div>
 <% end %>
+
