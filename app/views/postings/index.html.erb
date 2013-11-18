@@ -1,10 +1,10 @@
-<h1>UROP postings</h1>
+<center><h3>UROP postings</h3></center>
 
 <% if current_user.type == 'Supervisor' %>
-<%= link_to 'New Posting', new_posting_path %><br>
-<%= link_to 'View My Postings', urop_applications_path %>
+<%= link_to 'New Posting', new_posting_path, :style=>"margin:20px;" %><br>
+<%= link_to 'View My Postings', urop_applications_path, :style=>"margin:20px;" %>
 <% elsif current_user.type == 'Student' %>
-<%= link_to 'View Your Applications', urop_applications_path %>
+<%= link_to 'View Your Applications', urop_applications_path, :style=>"margin:20px;" %>
 <% end %>
 
 <%= form_tag postings_path, :method => 'get', :id => "postings_search" do %>
