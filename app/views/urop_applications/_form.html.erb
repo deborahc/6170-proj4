@@ -4,7 +4,7 @@
     <label>Subject</label>
     <input> 
   </div>
-  
+  <%= f.hidden_field :posting_name, :value=>@posting.title %>
   <%= f.hidden_field :posting_id, :value=>params[:id] %>
   <%= f.hidden_field :student_id, :value=>current_user.id %>
 
