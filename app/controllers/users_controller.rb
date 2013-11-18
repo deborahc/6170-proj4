@@ -127,6 +127,7 @@ class UsersController < ApplicationController
           #Redirect to user's own profile
           redirect_to student_path(current_user.id), :notice => "You can't access this page"
         end
+      end
     end
 end
 
