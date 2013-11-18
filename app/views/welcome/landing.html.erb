@@ -1,4 +1,4 @@
-
+<!--Urop.io Home Page -->
 		
 <html>
 <br></br>
@@ -6,7 +6,7 @@
 
 <br>
 <body>
-
+	
 <%= form_tag sessions_path do %>
 <div class="form-group">
 	<%= text_field_tag :email, params[:email], placeholder: "Email address" %>
@@ -22,7 +22,6 @@
 	<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>
 	<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary', :method => :get) %>
 </div>
-
 
 </body>
 </html>

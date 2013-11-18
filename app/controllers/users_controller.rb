@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_filter :require_login, only: [:new, :create]
 
+  #only owners of a user account may edit or delete their accounts
+  before_action :check_owner, only: [:edit, :update, :destroy]
+  before_action :check_access, only: [:show]
+
 
   # GET /users
   # GET /users.json
@@ -13,6 +17,17 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if params[:type] == 'Student'
+      render :action => 'show_student'
+    elsif params[:type] == 'Supervisor'
+      render :action => 'show_supervisor'
+    end
+  end
+
+  def show_student
+  end
+
+  def show_supervisor
   end
 
   # GET /users/new
@@ -81,7 +96,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(user_type_string).permit(:first_name, :last_name, :email, :year, :type, :password, :password_confirmation)
+      params.require(user_type_string).permit(:first_name, :last_name, :email, :year, :lab, :title,:department, :office, :type, :password, :password_confirmation)
     end
 
     def user_type
@@ -93,4 +108,31 @@ class UsersController < ApplicationController
     end
     helper_method :user_type_string
 
+    def check_owner
+      unless @user.id == current_user.id
+        if current_user.type == 'Student'
+          redirect_to student_path(current_user.id), :notice => "You can't access this page"
+        elsif current_user.type == 'Supervisor'
+          redirect_to supervisor_path(current_user.id), :notice => "You can't access this page"
+        end
+      end
+    end
+
+    def check_access
+      if current_user.type == 'Student'
+        # Only allow students to see all supervisor profiles, and their own profiles
+        unless @user.type == 'Supervisor' or @user.id == current_user.id
+          #Redirect to user's own profile
+          redirect_to student_path(current_user.id), :notice => "You can't access this page"
+        end
+      elsif current_user.type == 'Supervisor'
+        # Only allow supervisors to see all supervisor profiles, and profiles of students who have submitted
+        # an application for their postings
+        unless @user.type == 'Supervisor' #
+          redirect_to supervisor_path(current_user.id), :notice => "You can't access this page"
+        end
+      end
+    end
+
 end
+

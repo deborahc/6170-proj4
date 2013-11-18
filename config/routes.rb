@@ -1,9 +1,6 @@
 NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   resources :users
-
   resources :reviews
-
-
   resources :postings do
     resources :urop_applications
   end
