@@ -1,2 +1,0 @@
-class Supervisor < User
-end
