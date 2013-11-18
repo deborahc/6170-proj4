@@ -1,5 +1,5 @@
 class UropApplicationsController < ApplicationController
-
+	before_action :set_urop_application, only: [:destroy]
 	before_action :can_create, only: [:new, :create]
 
 	def index
@@ -31,6 +31,14 @@ class UropApplicationsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@urop_application.destroy
+		respond_to do |format|
+			format.html { redirect_to urop_applications_path }
+			format.json { head :no_content }
+	    end
+	end
+
 	def supervisor_application_index
 		@urop_applications = current_user.urop_applications
 	end
@@ -41,6 +49,10 @@ class UropApplicationsController < ApplicationController
 	end
 
 	private
+
+	def set_urop_application
+      @urop_application = UropApplication.find(params[:id])
+    end
 
 	def application_params
 		params.require(:urop_application).permit(:message, :supervisor_id, :posting_id, :student_id)
