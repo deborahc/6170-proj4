@@ -15,8 +15,8 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
-  get "supervisors/:id/urop_applications" => "users#student_application", :as => "student_applications"
-  get "students/:id/urop_applications" => "users#view_application", :as => "view_applications"
+  get "supervisors/:id/urop_applications" => "urop_applications#student_application", :as => "student_applications"
+  get "students/:id/urop_applications" => "urop_applications#view_application", :as => "view_applications"
   
   root :to => "welcome#landing"
 
