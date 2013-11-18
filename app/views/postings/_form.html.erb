@@ -1,4 +1,5 @@
-<%= form_for(@posting) do |f| %>
+<!-- Form partial for creating new postings-->
+<%= form_for(Posting.new) do |f| %>
   <% if @posting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@posting.errors.count, "error") %> prohibited this posting from being saved:</h2>
@@ -11,7 +12,27 @@
     </div>
   <% end %>
 
+    <div>
+      <%= f.label :"Posting Title" %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div>
+      <%= f.label :"Posting Description" %>
+      <%= f.string :description %>
+    </div>
+
+    <div>
+      <%= f.label :"Posting Skills" %>
+      <%= f.string :skills %>
+    </div>
+
+    <div>
+      <%= f.label :"Posting Funding Type" %>
+      <%= f.string :funding_type %>
+    </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit New Posting"%>
   </div>
 <% end %>
