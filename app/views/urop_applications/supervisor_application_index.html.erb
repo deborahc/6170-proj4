@@ -33,7 +33,7 @@
 	<% end %>
 	<% posting.urop_applications.each do |application| %>
 		<div class="well">
-		<%= application.student.first_name %> <%= application.student.last_name %><br>
+		<%= link_to application.student.first_name+" "+application.student.last_name, user_path(application.student.id) %><br>
 		Contact info: <%= application.student.email %><br>
 		<%= application.message %>
 		</div>
