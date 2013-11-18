@@ -14,6 +14,7 @@
     <p>Skills: <%= posting.skills %></p>
     <p>Funding type: <%= posting.funding_type %></p>
 
+
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
       <div style="float:left;">
