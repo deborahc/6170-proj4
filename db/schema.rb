@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117061350) do
+ActiveRecord::Schema.define(version: 20131118004750) do
 
   create_table "applications", force: true do |t|
     t.datetime "created_at"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 20131117061350) do
     t.integer  "posting_id"
     t.integer  "student_id"
     t.text     "message"
+    t.string   "posting_name"
+    t.integer  "supervisor_id"
   end
 
   create_table "users", force: true do |t|

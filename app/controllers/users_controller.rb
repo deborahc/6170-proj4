@@ -88,6 +88,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def student_application
+    if current_user.type == "Supervisor"
+      @postings = current_user.postings
+      puts "hello"
+      puts @postings.length
+    else
+      redirect_to user_path(current_user.id)
+    end
+  end
+
+  def view_application
+    if current_user.type = "Student"
+      @urop_applications = current_user.urop_applications
+    else
+      redirect_to user_path(current_user.id)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
