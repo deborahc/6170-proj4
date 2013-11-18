@@ -27,6 +27,7 @@
     <%= link_to 'Apply Now', new_urop_application_path(:posting_id => posting.id, :supervisor_id=>posting.supervisor.id) %>
     <%end %>
 	<br>
+  <br>
 	<h4> Applications </h4>
 	<% if posting.urop_applications.empty? %>
 		<p> No applications </p>
