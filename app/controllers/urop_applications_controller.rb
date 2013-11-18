@@ -21,9 +21,8 @@ class UropApplicationsController < ApplicationController
 	end
 
 	def create
+		logger.info application_params
 		@urop_application = UropApplication.new(application_params)
-		@urop_application.student = current_user
-		@urop_application.posting = @posting
 		respond_to do |format|
 			if @urop_application.save
 				format.html { redirect_to postings_path }
