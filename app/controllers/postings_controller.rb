@@ -4,7 +4,8 @@ class PostingsController < ApplicationController
   # GET /postings
   # GET /postings.json
   def index
-    @postings = Posting.all
+    @postings = Posting.all.search(params[:search])
+
   end
 
   # GET /postings/1
@@ -28,7 +29,7 @@ class PostingsController < ApplicationController
 
     respond_to do |format|
       if @posting.save
-        format.html { redirect_to @posting, notice: 'Posting was successfully created.' }
+        format.html { redirect_to postings_path, notice: 'Posting was successfully created.' }
         format.json { render action: 'show', status: :created, location: @posting }
       else
         format.html { render action: 'new' }
