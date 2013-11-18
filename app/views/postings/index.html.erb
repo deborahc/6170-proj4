@@ -1,4 +1,4 @@
-<h1>Listing postings</h1>
+<h1>UROP postings</h1>
 
 <% if current_user.type == 'Supervisor' %>
 <%= link_to 'New Posting', new_posting_path %>
@@ -26,7 +26,7 @@
     </div>
     <% end %>
     <% if current_user.type == 'Student' %>
-    <%= link_to 'Apply Now', new_urop_application_path(:posting_id => posting.id) %>
+    <%= link_to 'Apply Now', new_urop_application_path(:posting_id => posting.id, :supervisor_id=>posting.supervisor.id) %>
     <%end %>
 
   </div>

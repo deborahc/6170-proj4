@@ -1,5 +1,13 @@
-<ul>
+<center><h4> Projects You've Submitted Applications To </h4></center>
+<div class="row-fluid">
 <% @urop_applications.each do |application| %>
-	<li><%= application.posting.title %></li>
+	<div class="span4">
+		<h4> <%= link_to application.posting.title, posting_path(application.posting.id) %></h4>
+		<p>Sponsor: <%= application.posting.supervisor.first_name %> <%= application.posting.supervisor.last_name %></p>
+		<p>Project description: <%= application.posting.description %></p>
+		<p>Skills: <%= application.posting.skills %></p>
+		<p>Funding type: <%= application.posting.funding_type %></p>
+		<p>Your message: <%= application.message %></p>
+	</div>
 <% end %>
-</ul>
+</div>
