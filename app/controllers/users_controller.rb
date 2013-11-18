@@ -127,7 +127,7 @@ class UsersController < ApplicationController
       elsif current_user.type == 'Supervisor'
         # Only allow supervisors to see all supervisor profiles, and profiles of students who have submitted
         # an application for their postings
-        unless @user.type == 'Supervisor' or 
+        unless @user.type == 'Supervisor' or @user.id in current_user.postings.
       end
     end
 
