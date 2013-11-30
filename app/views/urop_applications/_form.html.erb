@@ -3,6 +3,7 @@
   <%= f.hidden_field :supervisor_id, :value=>params[:supervisor_id] %>
   <%= f.hidden_field :posting_id, :value=> params[:posting_id] %>
   <%= f.hidden_field :student_id, :value=>current_user.id %>
+  <%= f.hidden_field :status, :value=>"requested"%>
 
   <div class="field form-group">
     <%= f.label :message %> <p> This will be sent as a copy to the supervisor's email mailbox </p>
