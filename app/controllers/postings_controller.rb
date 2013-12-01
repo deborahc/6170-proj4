@@ -14,6 +14,7 @@ class PostingsController < ApplicationController
   # GET /postings/1
   # GET /postings/1.json
   def show
+    @posting = Posting.find(params[:id])
   end
 
   # GET /postings/new

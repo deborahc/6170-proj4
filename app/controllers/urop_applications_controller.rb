@@ -27,7 +27,7 @@ class UropApplicationsController < ApplicationController
 				#Send a copy of the message to the supervisor's email address
 				@message = application_params[:message]
 				@title = @urop_application.posting.title
-				UserMailer.send_request(current_user,@urop_application.posting.supervisor,@message,@title)
+				UserMailer.send_request(current_user,@urop_application.posting.supervisor,@title,@message)
 				format.html { redirect_to postings_path }
 			else
 				format.html { redirect_to postings_path }
@@ -45,20 +45,12 @@ class UropApplicationsController < ApplicationController
 
 	def supervisor_application_index
 		@urop_applications = current_user.urop_applications
+		@email = Email.new
 	end
 
 
 	def student_application_index
 		@urop_applications = current_user.urop_applications
-	end
-
-	def email
-		@application = UropApplication.find(params[:application])
-		@title = @application.posting.title
-		@message = params['message']
-		puts "hello"
-		puts @message
-		UserMailer.send_reply(current_user,@application.student,@title,@message)
 	end
 
 	private

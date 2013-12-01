@@ -1,8 +1,10 @@
 NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   resources :users
-  #resources :reviews
+  resources :reviews
   resources :postings
-  resources :urop_applications
+  resources :urop_applications do
+    resources :emails
+  end
 
   resources :students, :controller => 'users', :type => 'Student'
   resources :supervisors, :controller => 'users', :type => 'Supervisor'
@@ -14,8 +16,6 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
 
   get "/student_applications" => "urop_applications#student_application_index", :as => "student_application_index"
   get "/supervisor_applications" => "urop_applications#supervisor_application_index", :as => "supervisor_application_index"
-
-  get "/:application/email" => "urop_applications#email", :as => "email" 
 
   root :to => "welcome#landing"
 

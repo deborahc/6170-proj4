@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129194259) do
+ActiveRecord::Schema.define(version: 20131130042949) do
 
   create_table "applications", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "posting_id"
     t.integer  "student_id"
+    t.text     "message"
+  end
+
+  create_table "emails", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "subject"
     t.text     "message"
   end
 
