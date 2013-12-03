@@ -25,13 +25,17 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @review }
+        format.html { redirect_to postings_path, notice: 'Review was successfully created.' }
+        if current_user.type == "Student"
+          format.html { redirect_to postings_path, notice: 'Review was successfully created.' }
+        else
+          format.html { redirect_to supervisor_application_index_path, notice: 'Review was successfully created.' }
+        end
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to postings_path, notice: "Review could not be saved. Make sure all fields are filled in." }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +73,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params[:review]
+      params.require(:review).permit(:overall_rating, :supervisor_rating, :time_commitment, :recommended, :reflection, :supervisor_id, :student_id, :posting_id)    
     end
 end

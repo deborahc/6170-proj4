@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131130042949) do
+ActiveRecord::Schema.define(version: 20131203062947) do
 
   create_table "applications", force: true do |t|
     t.datetime "created_at"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20131130042949) do
     t.integer  "supervisor_rating"
     t.integer  "time_commitment"
     t.boolean  "recommended"
+    t.integer  "posting_id"
   end
 
   create_table "students", force: true do |t|

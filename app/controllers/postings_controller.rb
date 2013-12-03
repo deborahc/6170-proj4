@@ -8,6 +8,7 @@ class PostingsController < ApplicationController
   # GET /postings.json
   def index
     @postings = Posting.all.search(params[:search])
+    @review = Review.new
 
   end
 
