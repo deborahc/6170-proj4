@@ -24,6 +24,10 @@ class UropApplicationsController < ApplicationController
 		@urop_application = UropApplication.new(application_params)
 		respond_to do |format|
 			if @urop_application.save
+				#Send a copy of the message to the supervisor's email address
+				@message = application_params[:message]
+				@title = @urop_application.posting.title
+				UserMailer.send_request(current_user,@urop_application.posting.supervisor,@message,@title)
 				format.html { redirect_to postings_path }
 			else
 				format.html { redirect_to postings_path }
@@ -48,6 +52,15 @@ class UropApplicationsController < ApplicationController
 		@urop_applications = current_user.urop_applications
 	end
 
+	def email
+		@application = UropApplication.find(params[:application])
+		@title = @application.posting.title
+		@message = params['message']
+		puts "hello"
+		puts @message
+		UserMailer.send_reply(current_user,@application.student,@title,@message)
+	end
+
 	private
 
 	def set_urop_application
@@ -55,7 +68,7 @@ class UropApplicationsController < ApplicationController
     end
 
 	def application_params
-		params.require(:urop_application).permit(:message, :supervisor_id, :posting_id, :student_id)
+		params.require(:urop_application).permit(:message, :supervisor_id, :posting_id, :student_id, :status)
 	end
 
     # Only users can create applications
