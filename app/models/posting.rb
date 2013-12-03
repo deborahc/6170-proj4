@@ -1,7 +1,12 @@
 class Posting < ActiveRecord::Base
 	has_many :urop_applications
+<<<<<<< HEAD
 	belongs_to :supervisor, dependent: :destroy
 	has_many :reviews
+=======
+	belongs_to :supervisor
+
+>>>>>>> master
 	
 	validates :title, :presence => true
 

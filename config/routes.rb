@@ -17,6 +17,8 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
   get "/student_applications" => "urop_applications#student_application_index", :as => "student_application_index"
   get "/supervisor_applications" => "urop_applications#supervisor_application_index", :as => "supervisor_application_index"
 
+  get "/:application/email" => "urop_applications#email", :as => "email" 
+
   root :to => "welcome#landing"
 
 
