@@ -9,7 +9,6 @@
   <div class="span8 box">
     <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
   <div class="span4">
-    <h4> <%= posting.title %></h4>
     <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
     <p>Project description: <%= posting.description %></p>
     <p>Skills: <%= posting.skills %></p>
@@ -37,14 +36,9 @@
 		Contact info: <%= application.student.email %><br>
 		<%= application.message %><br><br>
     <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#reply-modal<%=application.id%>">
-<<<<<<< HEAD
       Send an Email
     </button>
     <%= render "email/form", :application => application %>
-		</div>
-=======
-      Send Reply
-    </button>
 		</div>
     <!-- Modal -->
     <div class="modal fade" id="reply-modal<%=application.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -62,9 +56,6 @@
           </div>
     </div><!-- /.modal -->
 	<% end %>
->>>>>>> master
-  </div>
-  <% end %><!--/span-->
 </div>
 <% end %>
 <% end %>
