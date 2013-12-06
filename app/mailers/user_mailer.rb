@@ -29,9 +29,9 @@ class UserMailer < ActionMailer::Base
   # called when supervisors want to send an email to the applicant
   def send_reply(from,to,title,message)
     RestClient.post API_URL+"/messages",
-      :from => from,
-      :to => to,
-      :subject => "UROP Application for "+title,
+      :from => from.email,
+      :to => to.email,
+      :subject => "Follow Up: UROP Application for "+title,
       :text => message
   end
 

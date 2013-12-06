@@ -1,35 +1,36 @@
 <% @postings.each_slice(3) do |slice| %>
   <div class="row-fluid">
   <% slice.each do |posting| %>
-  <div class="span4">
+  <div class="span8 box">
     <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
     <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
     <p>Project description: <%= posting.description %></p>
     <p>Skills: <%= posting.skills %></p>
     <p>Funding type: <%= posting.funding_type %></p>
 
-
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
+      <div style="float:left;">
+        <%= button_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
+      </div>
 
-
-          <div style="float:left;">
-      <%= button_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
-    </div>
-
-          <div style="float:left;">
-        <%= button_to( 'Delete', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
+      <div style="float:left;">
+          <%= button_to( 'Delete', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
       </div>
     <% end %>
+    <!-- Only students can write reviews or apply to a UROP posting -->
     <% if current_user.type == 'Student' %>
-    <% if UropApplication.where(:posting_id=>posting.id,:student_id=>current_user.id).exists? %>
-      <button type="button" class="btn default" disabled="disabled">Application submitted</button>
-    <% else %>
-      <%= link_to 'Apply Now', new_urop_application_path(:posting_id => posting.id) %>
-    <% end %>
+      <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#review-modal">
+        Write a Review
+      </button>
+      <% if UropApplication.where(:posting_id=>posting.id,:student_id=>current_user.id).exists? %>
+        <button type="button" class="btn default" disabled="disabled">Application submitted</button>
+      <% else %>
+        <%= link_to 'Apply Now', new_urop_application_path(:posting_id => posting.id) %>
+      <% end %>
+      <%= render "reviews/form", :posting => posting %><br><br>
     <%end %>
-
-  </div>
+  </div><br>
   <% end %><!--/span-->
 </div>
 <% end %>

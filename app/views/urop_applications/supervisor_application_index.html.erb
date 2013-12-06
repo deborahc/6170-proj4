@@ -6,6 +6,8 @@
 <% current_user.postings.each_slice(3) do |slice| %>
   <div class="row-fluid">
   <% slice.each do |posting| %>
+  <div class="span8 box">
+    <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
   <div class="span4">
     <h4> <%= posting.title %></h4>
     <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
@@ -15,13 +17,13 @@
 
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
-      <div style="float:left;">
-        <%= button_to( 'Delete', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
+      <div style="float:left; margin-right:20px;">
+        <%= button_to( 'Remove Post', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
       </div>
-
-          <div style="float:left;">
+      
+      <div style="float:left;">
       <%= button_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
-    </div>
+      </div>
     <% end %>
 	<br>
   <br>
@@ -35,6 +37,12 @@
 		Contact info: <%= application.student.email %><br>
 		<%= application.message %><br><br>
     <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#reply-modal<%=application.id%>">
+<<<<<<< HEAD
+      Send an Email
+    </button>
+    <%= render "email/form", :application => application %>
+		</div>
+=======
       Send Reply
     </button>
 		</div>
@@ -54,7 +62,9 @@
           </div>
     </div><!-- /.modal -->
 	<% end %>
+>>>>>>> master
   </div>
   <% end %><!--/span-->
 </div>
+<% end %>
 <% end %>

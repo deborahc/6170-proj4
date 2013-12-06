@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20131129194259) do
     t.text     "message"
   end
 
+  create_table "emails", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "subject"
+    t.text     "message"
+  end
+
   create_table "postings", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,6 +48,7 @@ ActiveRecord::Schema.define(version: 20131129194259) do
     t.integer  "supervisor_rating"
     t.integer  "time_commitment"
     t.boolean  "recommended"
+    t.integer  "posting_id"
   end
 
   create_table "students", force: true do |t|
