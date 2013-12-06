@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129194259) do
+ActiveRecord::Schema.define(version: 20131203062947) do
 
   create_table "applications", force: true do |t|
     t.datetime "created_at"
@@ -101,6 +101,10 @@ ActiveRecord::Schema.define(version: 20131129194259) do
     t.string   "department"
     t.string   "office"
     t.string   "type"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
 end
