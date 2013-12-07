@@ -10,8 +10,46 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+  <!-- Modal -->
+  <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <%= f.hidden_field :supervisor_id, :value=> posting.supervisor.id%>
+  <%= f.hidden_field :student_id, :value=> current_user.id %>
+  <%= f.hidden_field :posting_id, :value=> posting.id %>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4>UROP Review for <%= posting.title %></h4><br>
+    <h4> Supervisor: <%= posting.supervisor.first_name+" "+posting.supervisor.last_name %></h4>
   </div>
+  <div class="modal-body">
+    <div class="field">
+      <%= f.label :overall_rating %>
+      <%= f.text_field :overall_rating %>
+    </div>
+    <div class="field">
+      <%= f.label :supervisor_rating %>
+      <%= f.text_field :supervisor_rating %>
+    </div>
+    <div class="field">
+      <%= f.label :time_commitment %>
+      <%= f.text_field :time_commitment %>
+    </div>
+    <div class="field">
+      <%= f.label :recommended %>
+      <%= f.check_box :recommended %>
+    </div>
+    <div class="field">
+      <%= f.label :reflection %>
+      <%= f.text_area :reflection %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="actions">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close
+      </button>
+      <%= f.submit %>
+    </div>
+</div>
+
 <% end %>
+
+

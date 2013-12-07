@@ -1,0 +1,29 @@
+<%= form_for [application,@email] do |f| %>
+    <!-- Modal -->
+    <div class="modal fade" id="reply-modal<%=application.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <%= f.hidden_field :urop_application_id, :value=>application.id%>
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">New Email</h4><br>
+          <p class="modal-title">To: <%=application.student.email%></p><br>
+          <p class="modal-title">From: <%=current_user.email%></p><br>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <%= f.label :subject %>
+          <%= f.text_field :subject, :value=> "UROP Application for "+application.posting.title, :style=>"width:82%; height:40px;"%>
+        </div>
+        <div class="field">
+          <%=f.label :message %>
+          <%= f.text_area :message %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="actions">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit "Send Message", class: "btn btn-default" %>
+        </div>
+    </div>
+    </div><!-- /.modal -->
+
+	<% end %>

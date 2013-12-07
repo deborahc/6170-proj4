@@ -1,3 +1,22 @@
-<p id="notice"><%= notice %></p>
-<%= link_to 'Edit', edit_posting_path(@posting) %> |
+
+
+<h4><%= @posting.title %></h4>
+<% if !@posting.reviews.exists? %>
+	<p>No reviews written yet</p>
+<% end %>
+<% @posting.reviews.each do |review| %>
+	Review #<%= @posting.reviews.index(review) + 1 %><br>
+	<p>Author: <%= review.student.first_name%>&nbsp<%= review.student.last_name %>
+	<p>Overall Rating: <%= review.overall_rating %></p>
+	<p>Supervisor Rating: <%= review.supervisor_rating %></p>
+	<p>Time Commitment: <%= review.time_commitment %></p>
+	<p> Recommended: 
+		<% if review.recommended %>
+			Yes
+		<% else %>
+			No
+		<% end %>
+	</p>
+	<p>Reflection: <%= review.reflection %></p>
+<% end %>
 <%= link_to 'Back', urop_applications_path %>

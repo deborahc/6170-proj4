@@ -18,11 +18,20 @@ class UserMailer < ActionMailer::Base
       :text => "Thanks for signing up"
   end
 
-  def send_message(from,to,subject, message)
+  def send_request(from,to,title,message)
     RestClient.post API_URL+"/messages",
-      :from => from,
-      :to => to,
-      :subject => subject,
+      :from => from.email,
+      :to => to.email,
+      :subject => "UROP Application for "+title+" from "+from.first_name+" "+from.last_name,
+      :text => message
+  end
+
+  # called when supervisors want to send an email to the applicant
+  def send_reply(from,to,title,message)
+    RestClient.post API_URL+"/messages",
+      :from => from.email,
+      :to => to.email,
+      :subject => "Follow Up: UROP Application for "+title,
       :text => message
   end
 
