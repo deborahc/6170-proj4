@@ -127,7 +127,7 @@ class UsersController < ApplicationController
         # Only allow students to see all supervisor profiles, and their own profiles
         unless @user.type == 'Supervisor' or @user.id == current_user.id
           #Redirect to user's own profile
-          redirect_to student_path(current_user.id), :notice => "You can't access this page"
+          redirect_to student_path(current_user.id), :notice => "You can only access your own profile"
         end
       end
     end

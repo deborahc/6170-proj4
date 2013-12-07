@@ -1,0 +1,12 @@
+development:
+  bucket: urop-io
+  access_key_id: access_key_id
+  secret_access_key: secret_access_key
+test:
+  bucket: urop-io
+  access_key_id: access_key_id
+  secret_access_key: secret_access_key
+production:
+  bucket: urop-io
+  access_key_id: access_key_id
+  secret_access_key: secret_access_key
