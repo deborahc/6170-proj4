@@ -57,4 +57,6 @@ gem 'rest-client'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'paperclip'
+gem 'aws-sdk'
 

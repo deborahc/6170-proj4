@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118054905) do
+ActiveRecord::Schema.define(version: 20131203062947) do
 
   create_table "applications", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "posting_id"
     t.integer  "student_id"
+    t.text     "message"
+  end
+
+  create_table "emails", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "subject"
     t.text     "message"
   end
 
@@ -41,6 +48,7 @@ ActiveRecord::Schema.define(version: 20131118054905) do
     t.integer  "supervisor_rating"
     t.integer  "time_commitment"
     t.boolean  "recommended"
+    t.integer  "posting_id"
   end
 
   create_table "students", force: true do |t|
@@ -75,6 +83,7 @@ ActiveRecord::Schema.define(version: 20131118054905) do
     t.integer  "student_id"
     t.text     "message"
     t.integer  "supervisor_id"
+    t.string   "status"
   end
 
   create_table "users", force: true do |t|
@@ -92,6 +101,10 @@ ActiveRecord::Schema.define(version: 20131118054905) do
     t.string   "department"
     t.string   "office"
     t.string   "type"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
 end
