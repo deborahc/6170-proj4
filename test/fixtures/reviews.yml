@@ -4,8 +4,46 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  id: 1
+  supervisor_id: 4
+  student_id: 2
+  reflection: "Great research opportunity. Time commitment was reasonable and received great mentorship. Highly recommended."
+  overall_rating: 10
+  supervisor_rating: 10
+  time_commitment: 12
+  recommended: true
+  posting_id: 1
+
+two:
+  id: 2
+  supervisor_id: 4
+  student_id: 3
+  reflection: "Thoroughly enjoyed this research opportunity."
+  overall_rating: 9
+  supervisor_rating: 10
+  time_commitment: 12
+  recommended: true
+  posting_id: 2
+
+three:
+  id: 3
+  supervisor_id: 7
+  student_id: 5
+  reflection: "Great opportunity."
+  overall_rating: 10
+  supervisor_rating: 9
+  time_commitment: 10
+  recommended: true
+  posting_id: 4
+
+four:
+  id: 4
+  supervisor_id: 7
+  student_id: 6
+  reflection: "Highly recommended."
+  overall_rating: 9
+  supervisor_rating: 9
+  time_commitment: 10
+  recommended: true
+  posting_id: 5

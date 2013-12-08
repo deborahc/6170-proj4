@@ -4,7 +4,6 @@ class Posting < ActiveRecord::Base
 	has_many :reviews
 	
 	validates :title, :presence => true
-
 	validates :description, :presence => true
 	validates :skills, :presence => true
 	validates :funding_type, :presence => true

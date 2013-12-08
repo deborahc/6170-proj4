@@ -100,7 +100,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(user_type_string).permit(:first_name, :last_name, :email, :year, :lab, :title,:department, :office, :type, :password, :password_confirmation)
+      params.require(user_type_string).permit(:first_name, :last_name, :email, :year, :major, :resume, :resume_file_name, :resume_content_type, :resume_file_size, :resume_updated_at, :lab, :title,:department, :office, :type, :password, :password_confirmation)
     end
 
     def user_type
@@ -127,7 +127,7 @@ class UsersController < ApplicationController
         # Only allow students to see all supervisor profiles, and their own profiles
         unless @user.type == 'Supervisor' or @user.id == current_user.id
           #Redirect to user's own profile
-          redirect_to student_path(current_user.id), :notice => "You can't access this page"
+          redirect_to student_path(current_user.id), :notice => "You can only access your own profile"
         end
       end
     end

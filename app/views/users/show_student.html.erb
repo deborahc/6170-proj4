@@ -7,6 +7,7 @@
 		<h5>Major: <%= @user.major %></h5>
 		<h5>Year: <%= @user.year %></h5>
 		<h5>Email Address: <%= @user.email %></h5>
+		<h5><%= link_to 'Resume', @user.resume.expiring_url %></h5>
 	</div>
 </div>
 

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SupervisorsControllerTest < ActionController::TestCase
   setup do
-    @supervisor = supervisors(:one)
+    @supervisor = supervisors(:Jackson)
   end
 
   test "should get index" do

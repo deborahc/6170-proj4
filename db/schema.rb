@@ -52,31 +52,6 @@ ActiveRecord::Schema.define(version: 20131208011608) do
     t.string   "supervisor_rating"
   end
 
-  create_table "students", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "major"
-    t.string   "year"
-    t.string   "resume"
-    t.string   "password_digest"
-  end
-
-  create_table "supervisors", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "lab"
-    t.string   "title"
-    t.string   "email"
-    t.string   "department"
-    t.string   "office"
-    t.string   "password_digest"
-  end
-
   create_table "urop_applications", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"

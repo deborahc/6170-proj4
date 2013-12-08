@@ -4,8 +4,29 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+
+Jackson:
+  id: 4
+  first_name: "Daniel"
+  last_name: "Jackson"
+  email: "dnj@mit.edu"
+  major: ""
+  year: ""
+  lab: "Computer Science and Artificial Intelligence Laboratory (CSAIL)"
+  title: "Professor/MacVicar Fellow"
+  department: "Electrical Engineering and Computer Science"
+  office: "32-G704"
+  type: "Supervisor"
+
+UnaMay:
+  id: 7
+  first_name: "Una-May"
+  last_name: "O'Reilly"
+  email: "unamay@csail.mit.edu"
+  major: ""
+  year: ""
+  lab: "Computer Science and Artificial Intelligence Laboratory (CSAIL)"
+  title: "Principal Research Investigator"
+  department: "Computer Science and Artificial Intelligence Laboratory (CSAIL)"
+  office: "32-D534"
+  type: "Supervisor"
