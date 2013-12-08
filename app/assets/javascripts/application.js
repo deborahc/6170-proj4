@@ -23,6 +23,12 @@ $(function() {
     return false;
   });
 
+  $('input#student_major').typeahead( {name: 'planets', local: [ "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune" ] });
+
+
+
+
+
   //Dropdown for the postings search bar
   $(".dropdown-toggle").dropdown();
 
