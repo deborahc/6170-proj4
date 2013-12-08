@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131208011608) do
 
-  create_table "applications", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "posting_id"
-    t.integer  "student_id"
-    t.text     "message"
-  end
-
   create_table "emails", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -77,6 +69,10 @@ ActiveRecord::Schema.define(version: 20131208011608) do
     t.string   "department"
     t.string   "office"
     t.string   "type"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
 end
