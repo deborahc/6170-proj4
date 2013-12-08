@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203062947) do
-
-  create_table "applications", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "posting_id"
-    t.integer  "student_id"
-    t.text     "message"
-  end
+ActiveRecord::Schema.define(version: 20131207205601) do
 
   create_table "emails", force: true do |t|
     t.datetime "created_at"
@@ -51,31 +43,6 @@ ActiveRecord::Schema.define(version: 20131203062947) do
     t.integer  "posting_id"
   end
 
-  create_table "students", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "major"
-    t.string   "year"
-    t.string   "resume"
-    t.string   "password_digest"
-  end
-
-  create_table "supervisors", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "lab"
-    t.string   "title"
-    t.string   "email"
-    t.string   "department"
-    t.string   "office"
-    t.string   "password_digest"
-  end
-
   create_table "urop_applications", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -101,10 +68,6 @@ ActiveRecord::Schema.define(version: 20131203062947) do
     t.string   "department"
     t.string   "office"
     t.string   "type"
-    t.string   "resume_file_name"
-    t.string   "resume_content_type"
-    t.integer  "resume_file_size"
-    t.datetime "resume_updated_at"
   end
 
 end
