@@ -7,7 +7,7 @@ class PostingsController < ApplicationController
   # GET /postings
   # GET /postings.json
   def index
-    @postings = Posting.all.search(params[:search])
+    @postings = Posting.all.search(params[:search], params[:category])
     @review = Review.new
     @urop_application = UropApplication.new
   end

@@ -8,18 +8,20 @@
 
 <!-- search bar -->
 <%= form_tag postings_path, :method => 'get', :id => "postings_search" do %>
+
 <div class="input-group">
-    <%= text_field_tag :search, params[:search], class: "form-control", type: "text" %>
+	<div>
+	   	<%= submit_tag "Search By", :name => nil, class: "btn btn-primary" %>
+	   	    <%= text_field_tag :search, params[:search], class: "form-control", type: "text" %>
+</div>
+
 <div class="input-group-btn">
-	<%= submit_tag "Search By", :name => nil, class: "btn btn-primary" %>
-	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="button-category">All&nbsp<span class="caret"></span></button>	
- <ul class="dropdown-menu pull-right">
-	  <li><a href="#" id="all">All</a></li>
-	  <li><a href="#" id="title">Title</a></li>
-	  <li><a href="#" id="description">Description</a></li>
-	  <li><a href="#" id="skill">Skills</a></li>
-	</ul>
+	<%= select_tag(:category, options_for_select([['All', '1'],
+                 ['Title', '2'],['Description','3'], ['Skills','4'], ['Sponsor','5'], ['Funding type','6']], '6'), type:"button", class:"btn dropdown-toggle") %>
+
+
 </div><!--button group-->
 </div><!--input group-->
 <% end %>
 <div id="postings"><%= render 'allpostings' %></div>
+
