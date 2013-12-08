@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
           format.html { redirect_to supervisor_application_index_path, notice: 'Review was successfully created.' }
         end
       else
-        format.html { redirect_to postings_path, notice: "Review could not be saved. Make sure all fields are filled in." }
+        format.html { redirect_to postings_path, notice: "Review could not be saved. Make sure you fill out fields with an *." }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -73,6 +73,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:overall_rating, :supervisor_rating, :time_commitment, :expected, :work_description, :anonymous :reflection, :supervisor_id, :student_id)    
+      params.require(:review).permit(:overall_rating, :supervisor_rating, :time_commitment, :expected, :work_description, :anonymous, :reflection, :supervisor_id, :student_id)    
     end
 end

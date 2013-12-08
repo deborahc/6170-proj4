@@ -4,10 +4,15 @@
 
 <% @posting.supervisor.reviews.each do |review| %>
 	Review #<%= @posting.supervisor.reviews.index(review) + 1 %><br>
-	<p>Author: <%= review.student.first_name%>&nbsp<%= review.student.last_name %>
+	<% if review.anonymous %>
+		<p>Author : Anonymous </p>
+	<% else %>
+		<p>Author: <%= review.student.first_name%>&nbsp<%= review.student.last_name %>
+	<% end %>
 	<p>Overall Rating: <%= review.overall_rating %></p>
-	<p>Supervisor Rating: <%= review.supervisor_rating %></p>
+	<p>Supervisor Role: <%= review.supervisor_rating %></p>
 	<p>Time Commitment: <%= review.time_commitment %></p>
-	<p>Reflection: <%= review.reflection %></p>
+	<p>Work Description: <%= review.work_description %></p>
+	<p>Other comments: <%= review.reflection %></p>
 <% end %>
-<%= link_to 'Back', urop_applications_path %>
+<%= link_to 'Back', postings_path %>

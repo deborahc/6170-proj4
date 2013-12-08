@@ -23,18 +23,18 @@
     <div class="field">
       <%= f.label :overall_rating, "Overall Experience" %>
       <%= f.select(:overall_rating, options_for_select([
-        ['5 Excellent','Excellent'], ['4 Great','Greate'], ['3 Average','Average'],['2 OK','OK'],['1 Poor', 'Poor']
+        ['5 Excellent','5 Excellent'], ['4 Great','4 Great'], ['3 Average','3 Average'],['2 OK','2 OK'],['1 Poor', '1 Poor']
         ])) %>
     </div>
     <div class="field">
-      <%= f.label :supervisor_rating, "Supervisor Role" %>
+      <%= f.label :supervisor_rating, "*Supervisor Role" %>
       <%= f.select(:supervisor_rating, options_for_select([
         ['Worked closely with mentor on a project','Worked closely with mentor on a project'],['Met regularly to discuss my independent work','Met regularly to discuss my independent work'],["Did not see supervisor much",'Did not see supervisor much']
         ])) %>
     </div>
     <div class="field">
-      <%= f.label :time_commitment, "How many hours did you spend per week?" %>
-      <%= f.number_field :time_commitment, class: "form-control" %>
+      <%= f.label :time_commitment, "*How many hours did you spend per week?" %>
+      <%= f.number_field :time_commitment, style: "height:30px" %>
     </div>
     <div class="field">
       <%= f.label :expected, "Was the work what you expected?" %>
@@ -43,12 +43,18 @@
         ])) %>
     </div>
     <div class="field">
-      <%= f.label :work_description, "Please briefly describe what you worked on in this UROP." %>
+      <%= f.label :work_description, "*Please briefly describe what you worked on in this UROP." %>
       <%= f.text_area :work_description %>
     </div>
     <div class="field">
       <%= f.label :reflection, "Anything else you'd like to add?" %>
       <%= f.text_area :reflection %>
+    </div>
+    <div class="field inline-block">
+      <%= f.label :anonymous, "*Do you wish to be anonymous?", style: "display:inline;" %>
+      <p style="color:gray"> Your review will be public to everyone who has access to the site </p>
+      <%= f.radio_button :anonymous, "1"%>Yes
+      <%= f.radio_button :anonymous, "0"%>No
     </div>
   </div>
   <div class="modal-footer">

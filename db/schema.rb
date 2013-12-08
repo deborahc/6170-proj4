@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208003519) do
+ActiveRecord::Schema.define(version: 20131208011608) do
 
   create_table "applications", force: true do |t|
     t.datetime "created_at"
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20131208003519) do
     t.integer  "supervisor_id"
     t.integer  "student_id"
     t.text     "reflection"
-    t.integer  "overall_rating"
-    t.integer  "supervisor_rating"
     t.integer  "time_commitment"
     t.string   "expected"
     t.text     "work_description"
     t.boolean  "anonymous"
+    t.string   "overall_rating"
+    t.string   "supervisor_rating"
   end
 
   create_table "students", force: true do |t|
