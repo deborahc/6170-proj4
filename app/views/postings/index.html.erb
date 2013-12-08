@@ -12,13 +12,12 @@
 <div class="input-group">
 	<div>
 	   	<%= submit_tag "Search By", :name => nil, class: "btn btn-primary" %>
-	   	    <%= text_field_tag :search, params[:search], class: "form-control", type: "text" %>
+	   	<%= text_field_tag :search, params[:search], class: "form-control", type: "text" %>
 </div>
 
 <div class="input-group-btn">
 	<%= select_tag(:category, options_for_select([['All', '1'],
                  ['Title', '2'],['Description','3'], ['Skills','4'], ['Sponsor','5'], ['Funding type','6']], '6'), type:"button", class:"btn dropdown-toggle") %>
-
 
 </div><!--button group-->
 </div><!--input group-->

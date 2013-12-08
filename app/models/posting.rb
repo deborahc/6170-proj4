@@ -8,15 +8,12 @@ class Posting < ActiveRecord::Base
 	validates :skills, :presence => true
 	validates :funding_type, :presence => true
 
-
 	# Method to allow searching on all postings page
 	def self.search(search, category)
 
 		if category == '1'
 			return self.search_all(search)
 		elsif category == '2'
-			logger.info(self.search_title(search))
-
 			return self.search_title(search)
 		elsif category == '3'
 			return self.search_description(search)
@@ -49,6 +46,7 @@ class Posting < ActiveRecord::Base
 			scoped
 		end
 	end
+
 
 	# Search by description
 	def self.search_description(search)
