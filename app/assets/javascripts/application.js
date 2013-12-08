@@ -22,4 +22,8 @@ $(function() {
     $.get($("#postings_search").attr("action"), $("#postings_search").serialize(), null, "script");
     return false;
   });
+  $('input#student_major').typeahead( {name: 'planets', local: [ "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune" ] });
+
+
+
 });
