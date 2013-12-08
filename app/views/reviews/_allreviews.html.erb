@@ -1,0 +1,23 @@
+<% if @reviews.empty? %>
+<center><h2>No results</h2></center>
+<% end %>
+
+<% @reviews.each do |review| %>
+<div class="row-fluid">
+	<div class="span2">
+	</div>
+	<div class="span6">
+		<h4>Supervisor:&nbsp<%=review.supervisor.first_name%>&nbsp<%=review.supervisor.last_name%></h4>
+		<% if review.anonymous %>
+			<p> Author: Anonymous </p>
+		<% else %>
+			<p> Author: <%= review.student.first_name %>&nbsp<%= review.student.last_name %>
+		<% end %>
+		<p>Overall Rating: <%= review.overall_rating %></p>
+		<p>Supervisor Role: <%= review.supervisor_rating %></p>
+		<p>Time Commitment: <%= review.time_commitment %></p>
+		<p>Work Description: <%= review.work_description %></p>
+		<p>Other comments: <%= review.reflection %></p>
+	</div>
+</div>
+<% end %>

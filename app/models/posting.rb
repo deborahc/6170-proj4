@@ -32,7 +32,16 @@ class Posting < ActiveRecord::Base
 
   	def self.search_all(search)
   		 if search
-    		where(['title LIKE ? OR description LIKE ? OR skills LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+  		 	postings = Array.new
+    		self.search_supervisor(search).each do |posting|
+    			if !postings.include? posting
+    				postings.push(posting)
+    			end 
+    		end
+    		Posting.where(['title LIKE ? OR description LIKE ? OR skills LIKE ? OR funding_type LIKE?', "%#{search}%", "%#{search}%", "%#{search}%","%#{search}%"]).each do |posting|
+    			postings.push(posting)
+    		end
+    		return postings
   		else
     		scoped
     	end
@@ -70,9 +79,19 @@ class Posting < ActiveRecord::Base
 	def self.search_supervisor(search)
 		if search
 			postings = Array.new
-			if !Supervisor.where("first_name like ? or last_name like ?", "%#{search}%", "%#{search}%").nil?
-				Supervisor.where("first_name like ? or last_name like ?", "%#{search}%", "%#{search}%").each do |supervisor|
-					if !supervisor.postings.nil?
+			split_word = search.split(" ")
+			if split_word[1].nil?
+				split_word[0].delete(" ") unless split_word[0].nil?
+				Supervisor.where("first_name like ? or last_name like ? ", "%#{split_word[0]}%", "%#{split_word[0]}%").each do |supervisor|
+					supervisor.postings.each do |posting|
+						postings.push(posting)
+					end
+				end
+			else
+				if !split_word[2].nil?
+					return postings
+				else
+					Supervisor.where("first_name like? or last_name like ?", "%#{split_word[1]}%", "%#{split_word[1]}%").each do |supervisor|
 						supervisor.postings.each do |posting|
 							postings.push(posting)
 						end
@@ -91,6 +110,10 @@ class Posting < ActiveRecord::Base
 		else
 			scoped
 		end
+	end
+
+	def self.open?
+		return self.open
 	end
 end
 

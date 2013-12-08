@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<div class="profileHeader">
+<div class="span3"></div>
+<div class="profileHeader span8">
 	<br></br>
 	<div class="profileInfo">
 		<h4>About <%=@user.first_name %></h4>
@@ -9,7 +9,6 @@
 		<h5>Email Address: <%= @user.email %></h5>
 		<h5><%= link_to 'Resume', @user.resume.expiring_url %></h5>
 	</div>
+	<%= link_to 'Edit', edit_user_path(@user) %> |
+	<%= link_to 'Back', postings_path %>
 </div>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

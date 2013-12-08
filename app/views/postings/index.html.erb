@@ -1,8 +1,10 @@
 <% if current_user.type == 'Supervisor' %>
 <%= link_to 'New Posting', new_posting_path, :style=>"margin:20px;" %><br>
-<%= link_to 'View My Postings', urop_applications_path, :style=>"margin:20px;" %>
+<%= link_to 'View My Postings', urop_applications_path, :style=>"margin:20px;" %><br>
+<%= link_to 'View My Profile', supervisor_path(:id=>current_user.id), :style=>"margin:20px;" %>
 <% elsif current_user.type == 'Student' %>
-<%= link_to 'View Your Applications', urop_applications_path, :style=>"margin:20px;" %>
+<%= link_to 'View Your Applications', urop_applications_path, :style=>"margin:20px;" %><br>
+<%= link_to 'View My Profile', student_path(:id=>current_user.id), :style=>"margin:20px;" %>
 <% end %>
 <center><h3>UROP postings</h3></center>
 
@@ -10,16 +12,12 @@
 <%= form_tag postings_path, :method => 'get', :id => "postings_search" do %>
 
 <div class="input-group">
-	<div>
-	   	<%= submit_tag "Search By", :name => nil, class: "btn btn-primary" %>
-	   	<%= text_field_tag :search, params[:search], class: "form-control", type: "text" %>
-</div>
 
-<div class="input-group-btn">
-	<%= select_tag(:category, options_for_select([['All', '1'],
-                 ['Title', '2'],['Description','3'], ['Skills','4'], ['Sponsor','5'], ['Funding type','6']], '6'), type:"button", class:"btn dropdown-toggle") %>
-
-</div><!--button group-->
+	<%= text_field_tag :search, params[:search], class: "form-control", type: "text", style: "height:30px;" %>
+	<div class="input-group-btn">
+		<%= submit_tag "Search By", :name => nil, class: "btn btn-default" %>
+		<%= select_tag(:category, options_for_select([['All', '1'],['Title', '2'],['Description','3'], ['Skills','4'], ['Sponsor','5'], ['Funding type','6']], '1'), type:"button", class:"btn btn-default dropdown-toggle") %>
+	</div><!--button group-->
 </div><!--input group-->
 <% end %>
 <div id="postings"><%= render 'allpostings' %></div>

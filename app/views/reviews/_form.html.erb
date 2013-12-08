@@ -10,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-  <!-- Modal -->
-  <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <%= f.hidden_field :supervisor_id, :value=> posting.supervisor.id%>
   <%= f.hidden_field :student_id, :value=> current_user.id %>
   <div class="modal-header">
@@ -23,13 +23,13 @@
     <div class="field">
       <%= f.label :overall_rating, "Overall Experience" %>
       <%= f.select(:overall_rating, options_for_select([
-        ['5 Excellent','5 Excellent'], ['4 Great','4 Great'], ['3 Average','3 Average'],['2 OK','2 OK'],['1 Poor', '1 Poor']
+        ['',''],['5 Excellent','5 Excellent'], ['4 Great','4 Great'], ['3 Average','3 Average'],['2 OK','2 OK'],['1 Poor', '1 Poor']
         ])) %>
     </div>
     <div class="field">
       <%= f.label :supervisor_rating, "*Supervisor Role" %>
       <%= f.select(:supervisor_rating, options_for_select([
-        ['Worked closely with mentor on a project','Worked closely with mentor on a project'],['Met regularly to discuss my independent work','Met regularly to discuss my independent work'],["Did not see supervisor much",'Did not see supervisor much']
+        ['',''],['Worked closely with mentor on a project','Worked closely with mentor on a project'],['Met regularly to discuss my independent work','Met regularly to discuss my independent work'],["Did not see supervisor much",'Did not see supervisor much']
         ])) %>
     </div>
     <div class="field">
@@ -63,8 +63,8 @@
       </button>
       <%= f.submit "Submit", class: "btn btn-default" %>
     </div>
+  </div>
 </div>
-
 <% end %>
 
 

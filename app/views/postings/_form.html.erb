@@ -1,5 +1,5 @@
 <!-- Form partial for creating new postings-->
-<%= form_for(Posting.new) do |f| %>
+<%= form_for(@posting) do |f| %>
   <% if @posting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@posting.errors.count, "error") %> prohibited this posting from being saved:</h2>
