@@ -23,6 +23,11 @@ $(function() {
     return false;
   });
 
+  $("#reviews_search input").keyup(function() {
+    $.get($("#reviews_search").attr("action"), $("#reviews_search").serialize(), null, "script");
+    return false;
+  });
+
   $('input#student_major').typeahead( {name: 'planets', local: [ "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune" ] });
 
 

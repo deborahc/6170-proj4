@@ -1,8 +1,10 @@
-
-
-<h4><%= @posting.title %></h4>
+<center><h4><%= @posting.title %><br>
+	Supervisor: <%=@posting.supervisor.first_name%>&nbsp<%=@posting.supervisor.last_name%></h4></center>
 
 <% @posting.supervisor.reviews.each do |review| %>
+	<div class="row-fluid">
+	<div class="span4"></div>
+	<div class="span6">
 	Review #<%= @posting.supervisor.reviews.index(review) + 1 %><br>
 	<% if review.anonymous %>
 		<p>Author : Anonymous </p>
@@ -14,5 +16,8 @@
 	<p>Time Commitment: <%= review.time_commitment %></p>
 	<p>Work Description: <%= review.work_description %></p>
 	<p>Other comments: <%= review.reflection %></p>
+</div>
+</div>
 <% end %>
+
 <%= link_to 'Back', postings_path %>

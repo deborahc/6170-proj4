@@ -1,25 +1,8 @@
-<h1>Listing reviews</h1>
+<center><h1>Listing reviews</h1></center><br>
+<!-- search bar -->
+<%= form_tag reviews_path, :method => 'get', :id => "reviews_search" do %>
+ <%= text_field_tag :search, params[:search], type: "text" %>
+<%= submit_tag "Filter by Supervisor", :name => nil, class: "btn btn-primary" %>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Review', new_review_path %>
+<div id="reviews"><%= render "allreviews" %></div>

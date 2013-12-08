@@ -73,7 +73,7 @@ class Posting < ActiveRecord::Base
 		if search
 			postings = Array.new
 			if !Supervisor.where("first_name like ? or last_name like ?", "%#{search}%", "%#{search}%").nil?
-				Supervisor.where("first_name like ? or last_name like ?", "%#{search}%", "%#{search}%").each do |supervisor|
+				Supervisor.where("first_name like ? or last_name like ? ", "%#{search}%", "%#{search}%").each do |supervisor|
 					if !supervisor.postings.nil?
 						supervisor.postings.each do |posting|
 							postings.push(posting)
