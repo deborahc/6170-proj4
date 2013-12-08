@@ -40,7 +40,7 @@ class Posting < ActiveRecord::Base
 	# Search by skills
 	def self.skill_search(search)
 		if search
-			where('skill LIKE ?', "%#{search}%")
+			where('skills LIKE ?', "%#{search}%")
 		else
 			scoped
 		end

@@ -11,6 +11,10 @@ class PostingsController < ApplicationController
     @review = Review.new
   end
 
+  def skill_search
+    @postings = Posting.all.skill_search(params[:search])
+  end
+
   # GET /postings/1
   # GET /postings/1.json
   def show

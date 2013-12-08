@@ -19,6 +19,8 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
 
   get "/:application/email" => "urop_applications#email", :as => "email" 
 
+  get "/postings/skill_search" => "postings#skill_search", :as => "skill_serach"
+
   root :to => "welcome#landing"
 
 
