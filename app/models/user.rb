@@ -15,5 +15,16 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, :presence => true, :on => :create
 	validates :email, :presence => true, :uniqueness => true
 
+	def validate_email
+		email = :email.split("@")[0]
+		domain = :email.split("@")[1]
+		info = RestClient.get 'http://web.mit.edu/bin/cgicso?',
+    {:params=>{:options=>"general",:query=>@email, :output=>"json"}}
+    	response = email + "@MIT.EDU"
+    	unless info.inlcude? response
+    		self.errors.add(:email,"Please use a valid MIT email")
+    	end
+	end
+
 end
 

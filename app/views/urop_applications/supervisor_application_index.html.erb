@@ -9,16 +9,17 @@
   <div class="span8">
       <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
       <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
-      <@p>Project description: <%= posting.description %></p>
+      <p>Project description: <%= posting.description %></p>
       <p>Skills: <%= posting.skills %></p>
       <p>Funding type: <%= posting.funding_type %></p>
 
       <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
       <% if posting.supervisor_id == current_user.id %>
-          <%=link_to( 'Remove Post', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
+        <%=link_to( 'Remove Post', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
         <%= link_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
       <% end %>
       <br>
+      <%= link_to "View Applications", supervisor_application_show_path(posting), class: "btn btn-med", :method=>:get %>
   	<h4> Applications for <%=posting.title%></h4>
   	<% if posting.urop_applications.empty? %>
   		<p> No applications </p>

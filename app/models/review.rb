@@ -11,12 +11,10 @@ class Review < ActiveRecord::Base
 			reviews = Array.new
 			split_word = search.split(" ")
 			if split_word[1].nil?
-				split_word[0].delete(" ")
+				split_word[0].delete(" ") unless split_word[0].nil?
 				Supervisor.where("first_name like ? or last_name like ? ", "%#{split_word[0]}%", "%#{split_word[0]}%").each do |supervisor|
-					if !supervisor.reviews.nil?
-						supervisor.reviews.each do |review|
-							reviews.push(review)
-						end
+					supervisor.reviews.each do |review|
+						reviews.push(review)
 					end
 				end
 			else
@@ -24,10 +22,8 @@ class Review < ActiveRecord::Base
 					return reviews
 				else
 					Supervisor.where("first_name like? or last_name like ?", "%#{split_word[1]}%", "%#{split_word[1]}%").each do |supervisor|
-						if !supervisor.reviews.nil?
-							supervisor.reviews.each do |review|
-								reviews.push(review)
-							end
+						supervisor.reviews.each do |review|
+							reviews.push(review)
 						end
 					end
 				end

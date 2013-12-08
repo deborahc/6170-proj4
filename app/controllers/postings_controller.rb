@@ -18,6 +18,11 @@ class PostingsController < ApplicationController
     @posting = Posting.find(params[:id])
   end
 
+  def show_application
+    posting = Posting.find(params[:posting_id])
+    @applcations = posting.urop_applications
+  end
+
   # GET /postings/new
   def new
     @posting = Posting.new
