@@ -22,4 +22,22 @@ $(function() {
     $.get($("#postings_search").attr("action"), $("#postings_search").serialize(), null, "script");
     return false;
   });
+
+  //Dropdown for the postings search bar
+  $(".dropdown-toggle").dropdown();
+
+  //Change search by "field" when a new "field" is selected
+  $('#all')[0].addEventListener('click',function(){
+  	$('#button-category').html("All <span class='caret'></span>")
+  });
+  $('#title')[0].addEventListener('click',function(){
+  	$('#button-category').html("Title <span class='caret'></span>")
+  });
+  $('#description')[0].addEventListener('click',function(){
+  	$('#button-category').html("Description <span class='caret'></span>")
+  });
+  $('#skill')[0].addEventListener('click',function(){
+  	$('#button-category').html("Skill <span class='caret'></span>")
+  });
+  
 });

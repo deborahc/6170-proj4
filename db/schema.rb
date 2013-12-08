@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203062947) do
+ActiveRecord::Schema.define(version: 20131208003519) do
 
   create_table "applications", force: true do |t|
     t.datetime "created_at"
@@ -47,8 +47,9 @@ ActiveRecord::Schema.define(version: 20131203062947) do
     t.integer  "overall_rating"
     t.integer  "supervisor_rating"
     t.integer  "time_commitment"
-    t.boolean  "recommended"
-    t.integer  "posting_id"
+    t.string   "expected"
+    t.text     "work_description"
+    t.boolean  "anonymous"
   end
 
   create_table "students", force: true do |t|
@@ -101,10 +102,6 @@ ActiveRecord::Schema.define(version: 20131203062947) do
     t.string   "department"
     t.string   "office"
     t.string   "type"
-    t.string   "resume_file_name"
-    t.string   "resume_content_type"
-    t.integer  "resume_file_size"
-    t.datetime "resume_updated_at"
   end
 
 end

@@ -9,7 +9,6 @@ class PostingsController < ApplicationController
   def index
     @postings = Posting.all.search(params[:search])
     @review = Review.new
-
   end
 
   # GET /postings/1
