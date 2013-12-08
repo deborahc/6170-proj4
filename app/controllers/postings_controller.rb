@@ -7,12 +7,8 @@ class PostingsController < ApplicationController
   # GET /postings
   # GET /postings.json
   def index
-    @postings = Posting.all.search(params[:search])
+    @postings = Posting.all.search(params[:search], params[:category])
     @review = Review.new
-  end
-
-  def skill_search
-    @postings = Posting.all.skill_search(params[:search])
   end
 
   # GET /postings/1

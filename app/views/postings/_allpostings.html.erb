@@ -1,3 +1,8 @@
+
+<% if @postings.empty? %>
+<center><h2 >No results</h2><center>
+<% end %>
+
 <% @postings.each_slice(3) do |slice| %>
   <div class="row-fluid">
   <% slice.each do |posting| %>
@@ -12,7 +17,6 @@
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
 
-
           <div style="float:left;">
       <%= button_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
     </div>
@@ -21,6 +25,7 @@
         <%= button_to( 'Delete', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
       </div>
     <% end %>
+    <!-- Todo: move into model -->
     <% if current_user.type == 'Student' %>
     <% if UropApplication.where(:posting_id=>posting.id,:student_id=>current_user.id).exists? %>
       <button type="button" class="btn default" disabled="disabled">Application submitted</button>
