@@ -9,10 +9,7 @@ class PostingsController < ApplicationController
   def index
     @postings = Posting.all.search(params[:search])
     @review = Review.new
-  end
-
-  def skill_search
-    @postings = Posting.all.skill_search(params[:search])
+    @urop_application = UropApplication.new
   end
 
   # GET /postings/1

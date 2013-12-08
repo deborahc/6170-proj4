@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208011608) do
+ActiveRecord::Schema.define(version: 20131208080336) do
 
   create_table "emails", force: true do |t|
     t.datetime "created_at"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20131208011608) do
     t.string   "skills"
     t.string   "funding_type"
     t.text     "description"
+    t.boolean  "open"
   end
 
   create_table "reviews", force: true do |t|
