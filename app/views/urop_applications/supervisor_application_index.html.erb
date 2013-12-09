@@ -3,10 +3,10 @@
 
 <center><h3><%=current_user.first_name+" "+current_user.last_name%>'s UROP postings</h3></center>
 
-<% current_user.postings.each do |posting| %>
-  <div class="row-fluid">
-  <div class="span1"></div>
-  <div class="span8">
+<% current_user.postings.each_slice(3) do |slice| %>
+<div class="row-fluid">
+<% slice.each do |posting| %>
+  <div class="span4">
     <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
     <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
     <p>Project description: <%= posting.description %></p>
@@ -26,5 +26,6 @@
       <p> You have <%= posting.urop_applications.length %> application(s) for your posting </p>
   	<% end %>
   </div><!--span-->
+  <% end %>
 </div> <!-- row fluid -->
 <% end %>

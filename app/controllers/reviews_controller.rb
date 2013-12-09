@@ -4,7 +4,11 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all.search(params[:search])
+    if current_user.type == "Student"
+      @reviews = Review.all.search(params[:search])
+    else
+      @reviews = current_user.reviews
+    end
   end
 
   # GET /reviews/1

@@ -112,9 +112,8 @@ class Posting < ActiveRecord::Base
 		end
 	end
 
-	def self.open?
-		return self.open
-	end
+	
+
 end
 
 

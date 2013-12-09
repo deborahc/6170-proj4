@@ -1,10 +1,16 @@
 <% if current_user.type == 'Supervisor' %>
 <%= link_to 'New Posting', new_posting_path, :style=>"margin:20px;" %><br>
-<%= link_to 'View My Postings', urop_applications_path, :style=>"margin:20px;" %><br>
-<%= link_to 'View My Profile', supervisor_path(:id=>current_user.id), :style=>"margin:20px;" %>
+<%= link_to 'My Postings', urop_applications_path, :style=>"margin:20px;" %><br>
+<%= link_to 'My Profile', supervisor_path(:id=>current_user.id), :style=>"margin:20px;" %><br>
+<%= link_to "My Reviews", reviews_path, :style=>"margin:20px"%>
 <% elsif current_user.type == 'Student' %>
-<%= link_to 'View Your Applications', urop_applications_path, :style=>"margin:20px;" %><br>
-<%= link_to 'View My Profile', student_path(:id=>current_user.id), :style=>"margin:20px;" %>
+<%= link_to 'My Applications', urop_applications_path, :style=>"margin:20px;" %><br>
+<%= link_to 'My Profile', student_path(:id=>current_user.id), :style=>"margin:20px;" %><br>
+<%= link_to "View Reviews", reviews_path, :style=>"margin:20px"%><br>
+<button data-toggle="modal" data-target="#review-modal" style="margin:20px;">
+          Write a Review
+</button>
+<%= render "reviews/form" %>
 <% end %>
 <center><h3>UROP postings</h3></center>
 

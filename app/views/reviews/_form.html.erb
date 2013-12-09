@@ -12,14 +12,16 @@
   <% end %>
 <!-- Modal -->
 <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <%= f.hidden_field :supervisor_id, :value=> posting.supervisor.id%>
   <%= f.hidden_field :student_id, :value=> current_user.id %>
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4>UROP Review for <%= posting.title %></h4><br>
-    <h4> Supervisor: <%= posting.supervisor.first_name+" "+posting.supervisor.last_name %></h4>
+    <h4>UROP Review</h4><br>
   </div>
   <div class="modal-body">
+    <div class="field">
+      <%= f.label :supervisor_id, "*Supervisor" %>
+      <%=  f.select(:supervisor_id, Supervisor.all.map {|p| [p.first_name+" "+p.last_name,p.id]}, :prompt=>" ") %>
+    </div>
     <div class="field">
       <%= f.label :overall_rating, "Overall Experience" %>
       <%= f.select(:overall_rating, options_for_select([

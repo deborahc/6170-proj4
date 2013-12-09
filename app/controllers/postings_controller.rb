@@ -10,6 +10,7 @@ class PostingsController < ApplicationController
     @postings = Posting.all.search(params[:search], params[:category])
     @review = Review.new
     @urop_application = UropApplication.new
+    
   end
 
   # GET /postings/1

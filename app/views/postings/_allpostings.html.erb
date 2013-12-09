@@ -6,7 +6,7 @@
 <% @postings.each_slice(3) do |slice| %>
 <div class="row-fluid">
   <% slice.each do |posting| %>
-  <div class="span3">
+  <div class="span4">
     <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
     <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
     <p>Project description: <%= posting.description %></p>
@@ -18,19 +18,15 @@
 
       <%=link_to( 'Remove Post', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
       <%= link_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
-    <% end %>
-    <% if posting.urop_applications.empty? %>
-      <p> No applications </p>
-    <% else %>
-      <%= link_to "View Applications", supervisor_application_show_path(posting), class: "btn btn-med", :method=>:get %>
-      <p> You have <%= posting.urop_applications.length %> application(s) for your posting </p>
+      <% if posting.urop_applications.empty? %>
+        <p> No applications </p>
+      <% else %>
+        <%= link_to "View Applications", supervisor_application_show_path(posting), class: "btn btn-med", :method=>:get %>
+      <% end %>
     <% end %>
     
     <!-- Students have the option to apply and write a review for a posting -->
     <% if current_user.type == 'Student' %>
-      <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#review-modal">
-          Write a Review
-      </button>
       <!-- Checks if user already submitted an application. A student can only have one application for a posting -->
       <% if UropApplication.where(:posting_id=>posting.id,:student_id=>current_user.id).exists? %>
         <button class="btn btn-sm" data-toggle="modal" data-target="#apply-modal<%=posting.id%>" disabled="disabled">
@@ -42,10 +38,9 @@
         </button>
       <% end %>
       <%= render "urop_applications/form", :posting => posting %>
-      <%= render "reviews/form", :posting => posting %>
-  <% end %>
   <% end %>
   </div> <!-- span -->
+  <% end %>
 </div> <!-- row fluid -->
 <% end %>
 

@@ -1,10 +1,17 @@
+<%= link_to 'Back', postings_path %>
 <center><h4><%= @posting.title %><br>
 	Supervisor: <%=@posting.supervisor.first_name%>&nbsp<%=@posting.supervisor.last_name%></h4></center>
-
+<div class="span4">
+    <h4> <%= link_to @posting.title, posting_path(@posting.id) %></h4>
+    <p>Sponsor: <%= @posting.supervisor.first_name %> <%= @posting.supervisor.last_name %></p>
+    <p>Project description: <%= @posting.description %></p>
+    <p>Skills: <%= @posting.skills %></p>
+    <p>Funding type: <%= @posting.funding_type %></p>
+</div>
+<div class="span8">
+<h4>UROP Reviews</h4>
 <% @posting.supervisor.reviews.each do |review| %>
 	<div class="row-fluid">
-	<div class="span4"></div>
-	<div class="span6">
 	Review #<%= @posting.supervisor.reviews.index(review) + 1 %><br>
 	<% if review.anonymous %>
 		<p>Author : Anonymous </p>
@@ -13,11 +20,9 @@
 	<% end %>
 	<p>Overall Rating: <%= review.overall_rating %></p>
 	<p>Supervisor Role: <%= review.supervisor_rating %></p>
-	<p>Time Commitment: <%= review.time_commitment %></p>
-	<p>Work Description: <%= review.work_description %></p>
+	<p>Time Commitment: <%= review.time_commitment %>&nbsphours per week</p>
+	<p>What I worked on: <%= review.work_description %></p>
 	<p>Other comments: <%= review.reflection %></p>
-</div>
-</div>
+	</div>
 <% end %>
-
-<%= link_to 'Back', postings_path %>
+</div>

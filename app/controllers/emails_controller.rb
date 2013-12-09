@@ -12,10 +12,10 @@ class EmailsController < ApplicationController
 			@message = email_params[:message]
 			UserMailer.send_reply(current_user,@application.student,@title,@message)
 			flash[:notice] = "Email was sent."
-			redirect_to supervisor_application_index_path
+			redirect_to supervisor_application_show_path(@application.posting.id)
 		else
 			flash[:notice] = "Email was not sent. Please try again."
-			redirect_to supervisor_application_index_path
+			redirect_to supervisor_application_show_path(@application.posting.id)
 		end
 	end
 
