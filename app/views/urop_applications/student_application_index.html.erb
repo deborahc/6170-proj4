@@ -1,5 +1,7 @@
-<%= link_to 'View all Postings', postings_path, :style=>"margin:20px" %>
 <center><h3> Projects You've Submitted Applications To </h3></center>
+<% if @urop_applications.empty? %>
+<center><h4>You haven't applied to any UROPs yet.</h4></center>
+<% end %>
 <div class="row-fluid">
 <% @urop_applications.each do |application| %>
 	<div class="span4">

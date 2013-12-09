@@ -14,15 +14,22 @@
 
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
-      <%= link_to('Edit', edit_posting_path(posting), :class => 'btn btn-sm btn-success', :method => :get) %>
-      <%=link_to( 'Remove', posting, method: :delete, :class => 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' } )%>
-    <% end %>
+      <div class="dropdown" style="float:left">
+      <button class="btn btn-sm setting dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown">Settings&nbsp<span class="caret"></span></button>
+      <ul class="dropdown-menu setting" aria-labelledby="dLabel">
+        <li><a href="#"><%= link_to('Edit', edit_posting_path(posting), :method => :get) %></a></li>
+        <li><a href="#"><%=link_to( 'Remove', posting, method: :delete, data: { confirm: 'Are you sure?' } )%></a></li>
+      </ul>
+    </div>
     <% if posting.urop_applications.empty? %>
       <p> No applications </p>
     <% else %>
-      <%= link_to "Applications", supervisor_application_show_path(posting), class: "btn btn-sm btn-primary", :method=>:get %>
+      <%= link_to "Applications", supervisor_application_show_path(posting), class: "btn btn-sm btn-primary",:method=>:get, style: "float:left;" %>
+      <br><br>
       <p> You have <%= posting.urop_applications.length %> application(s) for your posting </p>
     <% end %>
+    <% end %>
+
     <% if current_user.type == 'Student' %>
     <!-- Checks if user already submitted an application. A student can only have one application for a posting -->
     <% if UropApplication.where(:posting_id=>posting.id,:student_id=>current_user.id).exists? %>
