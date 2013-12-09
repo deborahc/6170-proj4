@@ -60,16 +60,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = user_type.new(user_params)
-    # check the email address at MIT people directory
-    # code sampled from team string quartet
-    @email = @user.email.split('@')[0]
-    @domain = @user.email.split('@')[1]
-    @info = RestClient.get 'http://web.mit.edu/bin/cgicso?',
-    {:params=>{:options=>"general",:query=>@email, :output=>"json"}}
-    response = @email + "@MIT.EDU"
+    
     respond_to do |format|
-      if @info.include? response
-        if @user.save
+      if @user.save
           # Sends a welcome email if the user account is successfully created
           #UserMailer.welcome_email(@user).deliver
           session[:user_id] = @user.id
@@ -79,12 +72,8 @@ class UsersController < ApplicationController
           format.html { render action: 'new' }
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
-      else
-        format.html { render action: 'new', status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-  end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -149,5 +138,5 @@ class UsersController < ApplicationController
         end
       end
     end
-end
+  end
 

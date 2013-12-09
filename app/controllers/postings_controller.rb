@@ -10,12 +10,19 @@ class PostingsController < ApplicationController
     @postings = Posting.all.search(params[:search], params[:category])
     @review = Review.new
     @urop_application = UropApplication.new
+    
   end
 
   # GET /postings/1
   # GET /postings/1.json
   def show
     @posting = Posting.find(params[:id])
+  end
+
+  def show_application
+    @posting = Posting.find(params[:posting_id])
+    @applications = @posting.urop_applications
+    @email = Email.new
   end
 
   # GET /postings/new

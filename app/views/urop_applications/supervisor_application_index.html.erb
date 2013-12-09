@@ -4,11 +4,10 @@
 <center><h3><%=current_user.first_name+" "+current_user.last_name%>'s UROP postings</h3></center>
 
 <% current_user.postings.each_slice(3) do |slice| %>
-  <div class="row-fluid">
-  <% slice.each do |posting| %>
-  <div class="span8 box">
-    <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
+<div class="row-fluid">
+<% slice.each do |posting| %>
   <div class="span4">
+    <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
     <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
     <p>Project description: <%= posting.description %></p>
     <p>Skills: <%= posting.skills %></p>
@@ -16,31 +15,17 @@
 
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
-      <div style="float:left; margin-right:20px;">
-        <%= button_to( 'Remove Post', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
-      </div>
-      
-      <div style="float:left;">
-      <%= button_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
-      </div>
+      <%=link_to( 'Remove Post', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
+      <%= link_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
     <% end %>
-	<br>
-  <br>
-	<h4> Applications </h4>
-	<% if posting.urop_applications.empty? %>
-		<p> No applications </p>
-	<% end %>
-	<% posting.urop_applications.each do |application| %>
-		<div class="well">
-		<%= link_to application.student.first_name+" "+application.student.last_name, student_path(application.student.id) %><br>
-		Contact info: <%= application.student.email %><br>
-		<%= application.message %><br><br>
-    <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#reply-modal<%=application.id%>">
-      Send an Email
-    </button>
-    <%= render "email/form", :application => application %>
-		</div>
-	<% end %>
-</div>
-<% end %>
+      <br>
+  	<% if posting.urop_applications.empty? %>
+  		<p> No applications </p>
+    <% else %>
+      <%= link_to "View Applications", supervisor_application_show_path(posting), class: "btn btn-med", :method=>:get %>
+      <p> You have <%= posting.urop_applications.length %> application(s) for your posting </p>
+  	<% end %>
+  </div><!--span-->
+  <% end %>
+</div> <!-- row fluid -->
 <% end %>

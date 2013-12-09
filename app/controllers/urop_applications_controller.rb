@@ -45,7 +45,6 @@ class UropApplicationsController < ApplicationController
 
 	def supervisor_application_index
 		@urop_applications = current_user.urop_applications
-		@email = Email.new
 	end
 
 
@@ -57,8 +56,6 @@ class UropApplicationsController < ApplicationController
 		@application = UropApplication.find(params[:application])
 		@title = @application.posting.title
 		@message = params['message']
-		puts "hello"
-		puts @message
 		UserMailer.send_reply(current_user,@application.student,@title,@message)
 	end
 

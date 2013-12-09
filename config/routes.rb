@@ -16,8 +16,15 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
 
   get "/student_applications" => "urop_applications#student_application_index", :as => "student_application_index"
   get "/supervisor_applications" => "urop_applications#supervisor_application_index", :as => "supervisor_application_index"
+  get "/supervisor_applications/:posting_id" => "postings#show_application", :as => "supervisor_application_show"
 
   get "/:application/email" => "urop_applications#email", :as => "email" 
+
+  #unless Rails.application.config.consider_all_requests_local
+    get '/404' =>'errors#not_found'
+    get '/500' =>'errors#not_found'
+  #end
+
 
   root :to => "welcome#landing"
 
