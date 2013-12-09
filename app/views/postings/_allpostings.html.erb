@@ -1,4 +1,3 @@
-
 <% if @postings.empty? %>
 <center><h2 >No results</h2><center>
 <% end %>
@@ -15,14 +14,14 @@
 
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
-
-      <%=link_to( 'Remove Post', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
-      <%= link_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
-      <% if posting.urop_applications.empty? %>
-        <p> No applications </p>
-      <% else %>
-        <%= link_to "View Applications", supervisor_application_show_path(posting), class: "btn btn-med", :method=>:get %>
-      <% end %>
+      <%= link_to('Edit', edit_posting_path(posting), :class => 'btn btn-sm btn-success', :method => :get) %>
+      <%=link_to( 'Remove', posting, method: :delete, :class => 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' } )%>
+    <% end %>
+    <% if posting.urop_applications.empty? %>
+      <p> No applications </p>
+    <% else %>
+      <%= link_to "Applications", supervisor_application_show_path(posting), class: "btn btn-sm btn-primary", :method=>:get %>
+      <p> You have <%= posting.urop_applications.length %> application(s) for your posting </p>
     <% end %>
     <% if current_user.type == 'Student' %>
     <!-- Checks if user already submitted an application. A student can only have one application for a posting -->

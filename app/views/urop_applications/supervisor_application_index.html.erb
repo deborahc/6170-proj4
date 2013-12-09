@@ -1,5 +1,7 @@
 <%= link_to 'New UROP Posting', new_posting_path, :style=>"margin:20px;" %><br>
-<%= link_to 'View all Postings', postings_path, :style=>"margin:20px" %>
+<%= link_to 'All Postings', postings_path, :style=>"margin:20px" %><br>
+<%= link_to 'My Profile', supervisor_path(:id=>current_user.id), :style=>"margin:20px;" %><br>
+<%= link_to "My Reviews", reviews_path, :style=>"margin:20px"%>
 
 <center><h3><%=current_user.first_name+" "+current_user.last_name%>'s UROP postings</h3></center>
 
@@ -15,14 +17,13 @@
 
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
-      <%=link_to( 'Remove Post', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
-      <%= link_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
+      <%= link_to('Edit', edit_posting_path(posting), :class => 'btn btn-sm btn-success', :method => :get) %>
+      <%=link_to( 'Remove', posting, method: :delete, :class => 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' } )%>
     <% end %>
-      <br>
   	<% if posting.urop_applications.empty? %>
   		<p> No applications </p>
     <% else %>
-      <%= link_to "View Applications", supervisor_application_show_path(posting), class: "btn btn-med", :method=>:get %>
+      <%= link_to "Applications", supervisor_application_show_path(posting), class: "btn btn-sm btn-primary", :method=>:get %>
       <p> You have <%= posting.urop_applications.length %> application(s) for your posting </p>
   	<% end %>
   </div><!--span-->
