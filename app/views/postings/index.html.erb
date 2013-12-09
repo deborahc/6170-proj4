@@ -12,6 +12,7 @@
 <%= form_tag postings_path, :method => 'get', :id => "postings_search" do %>
 
 <div class="input-group">
+
 	<%= text_field_tag :search, params[:search], class: "form-control", type: "text", style: "height:30px;" %>
 	<div class="input-group-btn">
 		<%= submit_tag "Search By", :name => nil, class: "btn btn-default" %>

@@ -7,8 +7,16 @@
 		<h5>Major: <%= @user.major %></h5>
 		<h5>Year: <%= @user.year %></h5>
 		<h5>Email Address: <%= @user.email %></h5>
+
+		<% if !@user.resume.content_type.nil? %>
 		<h5><%= link_to 'Resume', @user.resume.expiring_url %></h5>
+		<% else %>
+		<h5>No resume uploaded</h5>
+ 		<% end %>
 	</div>
 	<%= link_to 'Edit', edit_user_path(@user) %> |
 	<%= link_to 'Back', postings_path %>
 </div>
+
+
+
