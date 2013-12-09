@@ -1,15 +1,18 @@
+# Posting class representation
 class Posting < ActiveRecord::Base
-	has_many :urop_applications, dependent: :destroy
-	belongs_to :supervisor
+
+	# Posting model associations
+	has_many :urop_applications
+	belongs_to :supervisor, dependent: :destroy
 	
+	# Posting attribute validations
 	validates :title, :presence => true
 	validates :description, :presence => true
 	validates :skills, :presence => true
 	validates :funding_type, :presence => true
 
-	# Method to allow searching on all postings page
+	# Search method to allow searching on all postings page
 	def self.search(search, category)
-
 		if category == '1'
 			return self.search_all(search)
 		elsif category == '2'
@@ -28,9 +31,9 @@ class Posting < ActiveRecord::Base
 		else
 			scoped
 		end
-
 	end
 
+	# Universal search method to allow searching on all postings page
   	def self.search_all(search)
   		 if search
   		 	postings = Array.new
@@ -110,7 +113,7 @@ class Posting < ActiveRecord::Base
 		end
 	end
 
-	# search by department
+	# Search by department
 	def self.search_department(search)
 		if search
 			postings = Array.new
@@ -125,6 +128,7 @@ class Posting < ActiveRecord::Base
 		end
 	end
 
+	# Search by department
 	def self.search_funding_type(search)
 		if search
 			where('funding_type LIKE ?', "%#{search}%")
@@ -132,9 +136,6 @@ class Posting < ActiveRecord::Base
 			scoped
 		end
 	end
-
-	
-
 end
 
 
