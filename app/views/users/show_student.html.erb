@@ -1,33 +1,38 @@
 <p id="notice"><%= notice %></p>
 <div class="span3"></div>
-<div class="profileHeader span8">
+<div class="profileHeader span8 showprofile">
 	<br></br>
-	<div class="">
-		<p>
+	<div class="inheritFont">
+		<p class="inheritFont">
 		  <b>First Name:</b>
 		  <%= @user.first_name %>
 		</p>
-		<p>
+		<br>
+		<p class="inheritFont">
 		  <b>Last Name:</b>
 		  <%= @user.last_name %>
 		</p>
-		<p>
+		<br>
+		<p class="inheritFont">
 		  <b>Year:</b>
 		  <%= @user.year %>
 		</p>
-		<p>
+		<br>
+		<p class="inheritFont">
 		  <b>Major:</b>
 		  <%= @user.major %>
 		</p>
+		<br>
 		<% if !@user.resume.content_type.nil? %>
 			<h5><%= link_to 'Resume', @user.resume.expiring_url %></h5>
 		<% else %>
 			<h5>No resume uploaded</h5>
  		<% end %>
 	</div>
-	<%= link_to 'Edit', edit_user_path(@user) %> |
-	<%= link_to 'Back', postings_path %>
+	<br></br>
+	<h5 class="alignBottom">
+	<%= link_to 'Edit', edit_user_path(@user) %>
+	<%= link_to 'Back to Postings', postings_path %>
+	</h5>
 </div>
-
-
 

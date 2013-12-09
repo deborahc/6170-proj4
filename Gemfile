@@ -14,7 +14,6 @@ group :production do
     gem 'pg'
 end
 
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -62,3 +61,6 @@ gem 'aws-sdk'
 
 # Use best_in_place for in-place profile page editing
 gem 'best_in_place', github: 'bernat/best_in_place'
+
+# Sanitize inputs for security measures
+gem 'sanitize'
