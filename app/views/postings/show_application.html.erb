@@ -1,0 +1,30 @@
+<center><h3> Applications for <%=@posting.title%></h3></center>
+<div class="span3"></div>
+<div class="span9">
+<table class="table">
+<thead>
+	<tr>
+		<th>Student Name</th>
+		<th>Graduation year </th>
+		<th>Email Address </th>
+		<th>Message</th>
+	</tr>
+</thead>
+<tbody>
+<% @applications.each do |application| %>
+	<tr>
+		<td><%= link_to application.student.first_name+" "+application.student.last_name, student_path(application.student.id) %></td>
+		<td><%= application.student.year %></td>
+		<td><%= application.student.email%></td>
+		<td class="btn btn-sm" data-toggle="modal" data-target="#message-modal<%=application.id%>">View message
+		</td>
+		<td class="btn btn-sm" data-toggle="modal" data-target="#reply-modal<%=application.id%>">
+		Send an Email
+		</td>
+		<%= render "showmessage", :application => application %>
+  		<%= render "email/form", :application => application %>
+	</tr>
+<% end %>
+</tbody>
+</table>
+</div>

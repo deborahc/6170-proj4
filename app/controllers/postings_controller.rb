@@ -19,8 +19,9 @@ class PostingsController < ApplicationController
   end
 
   def show_application
-    posting = Posting.find(params[:posting_id])
-    @applcations = posting.urop_applications
+    @posting = Posting.find(params[:posting_id])
+    @applications = @posting.urop_applications
+    @email = Email.new
   end
 
   # GET /postings/new

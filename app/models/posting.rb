@@ -35,13 +35,13 @@ class Posting < ActiveRecord::Base
   	def self.search_all(search)
   		 if search
   		 	postings = Array.new
+    		Posting.where(['title LIKE ? OR description LIKE ? OR skills LIKE ? OR funding_type LIKE?', "%#{search}%", "%#{search}%", "%#{search}%","%#{search}%"]).each do |posting|
+    			postings.push(posting)
+    		end
     		self.search_supervisor(search).each do |posting|
     			if !postings.include? posting
     				postings.push(posting)
     			end 
-    		end
-    		Posting.where(['title LIKE ? OR description LIKE ? OR skills LIKE ? OR funding_type LIKE?', "%#{search}%", "%#{search}%", "%#{search}%","%#{search}%"]).each do |posting|
-    			postings.push(posting)
     		end
     		return postings
   		else

@@ -3,11 +3,10 @@
 <center><h2 >No results</h2><center>
 <% end %>
 
-<% @postings.each do |posting| %>
+<% @postings.each_slice(3) do |slice| %>
 <div class="row-fluid">
-  <div class="span1">
-  </div>
-  <div class="span6">
+  <% slice.each do |posting| %>
+  <div class="span3">
     <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
     <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
     <p>Project description: <%= posting.description %></p>
@@ -17,13 +16,14 @@
     <!-- Only give users the option to see delete button for postings that they created, validated by can_delete anyway-->
     <% if posting.supervisor_id == current_user.id %>
 
-      <div style="float:left;">
-        <%= button_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
-      </div>
-      <div style="float:left;">
-        <%= button_to( 'Delete', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
-      </div>
-
+      <%=link_to( 'Remove Post', posting, method: :delete, :class => 'btn btn-med btn-primary', data: { confirm: 'Are you sure?' } )%>
+      <%= link_to('Edit', edit_posting_path(posting), :class => 'btn btn-med btn-primary', :method => :get) %>
+    <% end %>
+    <% if posting.urop_applications.empty? %>
+      <p> No applications </p>
+    <% else %>
+      <%= link_to "View Applications", supervisor_application_show_path(posting), class: "btn btn-med", :method=>:get %>
+      <p> You have <%= posting.urop_applications.length %> application(s) for your posting </p>
     <% end %>
     
     <!-- Students have the option to apply and write a review for a posting -->
@@ -44,7 +44,7 @@
       <%= render "urop_applications/form", :posting => posting %>
       <%= render "reviews/form", :posting => posting %>
   <% end %>
-
+  <% end %>
   </div> <!-- span -->
 </div> <!-- row fluid -->
 <% end %>
