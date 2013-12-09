@@ -12,13 +12,48 @@
  *= require_tree .
  */
 
+.homeForms {
+	margin-left: -300px;
+}
+
+.inline {
+	display: inline;
+	width: 500px;
+}
+
+.signupButtons {
+	display: inline;
+	float: left;
+	width: 600px;
+	height: 50px;
+}
+
+.homepageText {
+	font-family: sans-serif;
+	margin-left: 100px;
+	font-size: 16pt;
+	position : relative;
+	left: -25% ;
+	margin-top: 6%;
+	text-align: center;
+	margin-left : 420px;
+	width: 40% ;
+	font-style: lighter;
+}
+
+.hpText {
+	font-size: inherit;
+	line-height: 100%;
+	font-weight: bold;
+}
+
 .Nav{
 	background-color:  gray;
 }
 
 .homepage {
 	text-align: left;
-	background-image:url('http://www.blogmost.com/wp-content/uploads/2013/09/research-paper.jpg');
+	background-image:url('http://www.dfsrealestate.com/wp-content/themes/dfs/images/backgrounds/background_research_001.jpg');
 	background-size: 100% auto;
 	height : 100%;
 	width: 100%;
@@ -73,6 +108,33 @@ border: inset 1px solid #333;
 box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
 
+
+.signupform {
+background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
+background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+margin:auto;
+position:relative;
+width: 550px;
+height: 625px;
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 14px;
+font-style: italic;
+line-height: 24px;
+font-weight: bold;
+color: #09C;
+text-decoration: none;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:10px;
+border: 1px solid #999;
+border: inset 1px solid #333;
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+
 input.button {
 width:100px;
 position:absolute;
@@ -96,6 +158,7 @@ color:#09C;
 .nav-text{
 	color:blue;
 }
+
 .setting{
 	color:#C49963;
 	margin-right:40px;

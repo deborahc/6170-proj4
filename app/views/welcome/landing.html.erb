@@ -1,26 +1,34 @@
 <!--Urop.io Home Page -->
 		
 <html>
-<br></br>
+<br>
 <h1 class="centerize homeHeader">urop.io</h1>
-
 <br>
 <body class="homepage">
 	
+<div class="form-group">
 <%= form_tag sessions_path do %>
-<div class="form-group">
-	<%= text_field_tag :email, params[:email], placeholder: "Email address" %>
+	<div>
+		<%= text_field_tag :email, params[:email], placeholder: "Email address" %>
+		<br>
+		<%= password_field_tag :password, nil, placeholder: "Password", :id => 'password-field' %>
+		<br>
+		<br>
+		<%= submit_tag "Log in", :class => 'btn btn-large btn-primary', :id => 'login-btn'%>
+	<% end %>
+
+	<div class="signupButtons">
+		<div class="inline">
+			<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>	
+		</div>
+		<div>
+			<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary floatLeft', :method => :get) %>
+		</div>
+	</div>
+
+	</div>
+
 </div>
-<div class="form-group">
-	<%= password_field_tag :password, nil, placeholder: "Password", :id => 'password-field' %>
-</div>
-<br>
-<br>
-<br>
-	<%= submit_tag "Log in", :class => 'btn btn-large btn-primary', :id => 'login-btn'%>
-</div>
-<% end %>
-<br>
 <br>
 <br>
 <h1>&nbsp&nbspSign up</h1>
@@ -30,9 +38,10 @@
 	<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>
 	 </div>
 
-	<div style="float:left;">
-	<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary', :method => :get) %>
-	</div>
+<div class="homepageText">
+<p class="hpText">
+	urop.io connects MIT students to the UROP supervisors and projects that are right for them. 
+</p>
 </div>
 </center>
 </body>
