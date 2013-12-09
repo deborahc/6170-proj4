@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208080336) do
+ActiveRecord::Schema.define(version: 20131209053605) do
 
   create_table "emails", force: true do |t|
     t.datetime "created_at"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20131208080336) do
     t.string   "expected"
     t.text     "work_description"
     t.boolean  "anonymous"
-    t.string   "overall_rating"
     t.string   "supervisor_rating"
+    t.integer  "overall_rating"
   end
 
   create_table "urop_applications", force: true do |t|

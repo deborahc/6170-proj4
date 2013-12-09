@@ -15,9 +15,9 @@
 		<br>
 		<br>
 		<%= submit_tag "Log in", :class => 'btn btn-large btn-primary', :id => 'login-btn'%>
-	</div>
+	<% end %>
+
 	<div class="signupButtons">
-		<br>
 		<div class="inline">
 			<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>	
 		</div>
@@ -25,15 +25,25 @@
 			<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary floatLeft', :method => :get) %>
 		</div>
 	</div>
-<% end %>
+
+	</div>
+
 </div>
 <br>
+<br>
+<h1>&nbsp&nbspSign up</h1>
+<center>
+<div class="actions" id="sign_up_buttons">
+	<div style="float:left;">
+	<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>
+	 </div>
 
 <div class="homepageText">
 <p class="hpText">
-	urop.io connects MIT students to UROP supervisors and projects that are right for them. Though there are many parts on the path to obtain a UROP -- including find the right project, filling out the formal UROP application through the UROP office, and submitting onboarding documents for a particular department -- our app focuses on the first stage, that of finding the perfect match.
+	urop.io connects MIT students to the UROP supervisors and projects that are right for them. 
 </p>
 </div>
+</center>
 </body>
 </html>
 
