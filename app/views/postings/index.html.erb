@@ -1,6 +1,8 @@
+<% if current_user.type == "Student" %>
 <a href="#" data-toggle="modal" data-target="#review-modal" style="margin:20px; float:right;"><button class="btn btn-primary btn-lg">
           Write a Review
 </button></a>
+<% end %>
 <%= render "reviews/form" %>
 <center><h3>UROP postings</h3></center>
 
@@ -9,10 +11,10 @@
 
 <div class="input-group">
 
-	<%= text_field_tag :search, params[:search], class: "form-control", type: "text", style: "height:30px;" %>
+	<%= text_field_tag :search, params[:search], class: "form-control", type: "text", style: "height:30px; width:200px;" %>
 	<div class="input-group-btn">
 		<%= submit_tag "Search By", :name => nil, class: "btn btn-default" %>
-		<%= select_tag(:category, options_for_select([['All', '1'],['Title', '2'],['Department','3'],['Description','4'], ['Skills','5'], ['Sponsor','6'], ['Funding type','7']], '1'), type:"button", class:"btn btn-default dropdown-toggle") %>
+		<%= select_tag(:category, options_for_select([['All', '1'],['Title', '2'],['Department','3'],['Description','4'], ['Skills','5'], ['Sponsor','6'], ['Funding type','7']], '1'), type:"button", class:"btn btn-default dropdown-toggle", style:"width:100px;") %>
 	</div><!--button group-->
 </div><!--input group-->
 <% end %>

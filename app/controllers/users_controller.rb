@@ -51,16 +51,17 @@ class UsersController < ApplicationController
 
 
   def edit_student
+    @user = User.find(params[:id])
   end
 
   def edit_supervisor
+    @user = User.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = user_type.new(user_params)
-    
     respond_to do |format|
       if @user.save
           # Sends a welcome email if the user account is successfully created

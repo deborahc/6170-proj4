@@ -2,40 +2,40 @@
 
 <!-- Form partial for editing student information -->
 <div class="editform">
-	<%=form_for @user do |f| %>
+	<%=form_for(@user) do |f| %>
 		<br></br>
 		<div class="">
 			<%= f.label :first_name %>
 			<%= f.text_field :first_name %>
 		</div>
-		<br></br>
+		<br>
 		<div class="">
 			<%= f.label :last_name %>
 			<%= f.text_field :last_name %>
 		</div>
-		<br></br>
+		<br>
 		<div class="">
 			<%= f.label :year %>
 			<%= f.text_field :year %>
 		</div>
-		<br></br>
+		<br>
 		<div class="">
 			<%= f.label :major %>
 			<%= f.text_field :major %>
 		</div>
-		<br></br>
+		<br>
 		<% if !@user.resume.content_type.nil? %>		
 		<div class="">
 			<%= f.label :resume, "Update your resume" %>
 			<%= f.file_field :resume %>
 		</div>
-		<br></br>
+		<br>
 		<% else %>
 		<div class="">
 			<%= f.label :resume, "Upload a resume" %>
 			<%= f.file_field :resume %>
 		</div>
-		<br></br>
+		<br>
 		<%= f.submit "Submit"%>
 	<% end %>
 <% end %>

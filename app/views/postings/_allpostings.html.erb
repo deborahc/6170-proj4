@@ -19,7 +19,7 @@
       <button class="btn btn-sm setting dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown">Settings&nbsp<span class="caret"></span></button>
       <ul class="dropdown-menu setting" aria-labelledby="dLabel">
         <li><a href="#"><%= link_to('Edit', edit_posting_path(posting), :method => :get) %></a></li>
-        <li><a href="#"><%=link_to( 'Remove', posting, method: :delete, data: { confirm: 'Are you sure?' } )%></a></li>
+        <li><a href="#"><%=link_to( 'Remove', postings_path(:id=>posting.id), method: :delete, data: { confirm: 'Are you sure?' } )%></a></li>
       </ul>
     </div>
     <% if posting.urop_applications.empty? %>

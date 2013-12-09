@@ -70,7 +70,7 @@ class PostingsController < ApplicationController
   def destroy
     @posting.destroy
     respond_to do |format|
-      format.html { redirect_to postings_url }
+      format.html { redirect_to postings_path }
       format.json { head :no_content }
     end
   end

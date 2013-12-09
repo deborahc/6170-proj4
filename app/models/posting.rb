@@ -1,6 +1,6 @@
 class Posting < ActiveRecord::Base
-	has_many :urop_applications
-	belongs_to :supervisor, dependent: :destroy
+	has_many :urop_applications, dependent: :destroy
+	belongs_to :supervisor
 	has_many :reviews
 	
 	validates :title, :presence => true
