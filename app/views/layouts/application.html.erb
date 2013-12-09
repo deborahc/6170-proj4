@@ -11,13 +11,14 @@
 
 <% if current_user %>
 <div class="my-navbar">
-        <a class="brand pull-left"  <%= link_to "urop.io", postings_path %></a>
-        <p id="logout-text" class="pull-right">
-          <strong><%= current_user.email %></strong>
-            <%= link_to "Log out", logout_path %>
-            <!--<%= link_to "Sign up", signup_path %> -->
-            <!-- <%= link_to "log in", login_path %> -->
-        </p>
+  <a class="brand pull-left" <%= link_to "urop.io", postings_path %></a>
+  <a>
+  <p id="logout-text" class="pull-right">
+  <strong><%= current_user.email %></strong>
+    <%= link_to "Log out", logout_path %>
+    <!--<%= link_to "Sign up", signup_path %> -->
+    <!-- <%= link_to "log in", login_path %> -->
+</p>
 </div>
 <% end %>
   

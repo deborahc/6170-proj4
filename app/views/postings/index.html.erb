@@ -7,9 +7,9 @@
 <%= link_to 'My Applications', urop_applications_path, :style=>"margin:20px;" %><br>
 <%= link_to 'My Profile', student_path(:id=>current_user.id), :style=>"margin:20px;" %><br>
 <%= link_to "View Reviews", reviews_path, :style=>"margin:20px"%><br>
-<button data-toggle="modal" data-target="#review-modal" style="margin:20px;">
+<a href="#" data-toggle="modal" data-target="#review-modal" style="margin:20px;">
           Write a Review
-</button>
+</a>
 <%= render "reviews/form" %>
 <% end %>
 <center><h3>UROP postings</h3></center>

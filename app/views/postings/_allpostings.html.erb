@@ -24,20 +24,18 @@
         <%= link_to "View Applications", supervisor_application_show_path(posting), class: "btn btn-med", :method=>:get %>
       <% end %>
     <% end %>
-    
-    <!-- Students have the option to apply and write a review for a posting -->
     <% if current_user.type == 'Student' %>
-      <!-- Checks if user already submitted an application. A student can only have one application for a posting -->
-      <% if UropApplication.where(:posting_id=>posting.id,:student_id=>current_user.id).exists? %>
-        <button class="btn btn-sm" data-toggle="modal" data-target="#apply-modal<%=posting.id%>" disabled="disabled">
-          Application Submitted
-        </button>
-      <% else %>
-        <button class="btn btn-sm" data-toggle="modal" data-target="#apply-modal<%=posting.id%>">
-          Apply Now
-        </button>
-      <% end %>
-      <%= render "urop_applications/form", :posting => posting %>
+    <!-- Checks if user already submitted an application. A student can only have one application for a posting -->
+    <% if UropApplication.where(:posting_id=>posting.id,:student_id=>current_user.id).exists? %>
+      <button class="btn btn-sm" data-toggle="modal" data-target="#apply-modal<%=posting.id%>" disabled="disabled">
+        Application Submitted
+      </button>
+    <% else %>
+      <button class="btn btn-sm" data-toggle="modal" data-target="#apply-modal<%=posting.id%>">
+        Apply Now
+      </button>
+    <% end %>
+    <%= render "urop_applications/form", :posting => posting %>
   <% end %>
   </div> <!-- span -->
   <% end %>
