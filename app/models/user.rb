@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
 	has_secure_password
 	has_attached_file :resume
 
-	# #Uncomment to run locally
+	#Uncomment to run locally
+
 	# has_attached_file :resume,
 	# :storage => :s3,
 	# :s3_credentials => File.join(Rails.root, 'config', 's3.yml'),
