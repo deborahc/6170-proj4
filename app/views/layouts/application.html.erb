@@ -10,7 +10,11 @@
 <body>
 <% if current_user %>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <a class="navbar-brand"><strong style="color:white;"<%= link_to "urop.io", postings_path %></strong></a>
+  <a class="navbar-brand">
+    <strong style="color:white;">
+      <%= link_to "urop.io", postings_path %>
+    </strong>
+  </a>
   <div class="collapse navbar-collapse" style="padding-top:6px">
     <ul class="nav navbar-nav">
       <% if current_user.type == 'Supervisor' %>
@@ -29,16 +33,23 @@
     <p id="logout-text" class="pull-right">
     <strong><%= current_user.email %></strong>
     <%= link_to "Log out", logout_path %>
-    <!--<%= link_to "Sign up", signup_path %> -->
-    <!-- <%= link_to "log in", login_path %> -->
     </p>
   </div>
 </nav>
 
 <%else %>
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <a class="navbar-brand" href="#"><strong style="color:white;"<%= link_to "urop.io", postings_path %></strong></a>
+  <a class="navbar-brand" href="#">
+    <strong style="color:white;">
+      <%= link_to "urop.io", root_path %>
+    </strong>
+  </a>
+  <div class="collapse navbar-collapse float_right" style="padding-top:6px">
+    <ul class="nav navbar-nav">
+      <li><%= link_to 'Join as Student', new_student_path %></li>
+      <li><%= link_to "Join as Supervisor", new_supervisor_path %></li>
+    </ul>
+  </div>
 </nav>
 <% end %>
 

@@ -1,49 +1,27 @@
-<!--Urop.io Home Page -->
+<!--urop.io Home Page-->
 		
 <html>
-<br>
-<h1 class="centerize homeHeader">urop.io</h1>
-<br>
+<br></br>
+<h1 class="homeHeader centerize">urop.io</h1>
+<br></br>
 <body class="homepage">
-	
-<div class="form-group">
-<%= form_tag sessions_path do %>
-	<div>
+<div class="form-group float_left textFieldHeight">
+	<%= form_tag sessions_path do %>
 		<%= text_field_tag :email, params[:email], placeholder: "Email address" %>
-		<br>
+		<br></br>
 		<%= password_field_tag :password, nil, placeholder: "Password", :id => 'password-field' %>
-		<br>
-		<br>
+		<br></br>
 		<%= submit_tag "Log in", :class => 'btn btn-large btn-primary', :id => 'login-btn'%>
 	<% end %>
-
-	<div class="signupButtons">
-		<div class="inline">
-			<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>	
+	<center>
+		<div class="homepageText">
+			<p class="hpText">
+				urop.io connects MIT students to UROP supervisors and projects that are right for them.
+			</p>
 		</div>
-		<div>
-			<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary floatLeft', :method => :get) %>
-		</div>
-	</div>
-
-	</div>
-
-</div>
-<br>
-<br>
-<h1>&nbsp&nbspSign up</h1>
-<center>
-<div class="actions" id="sign_up_buttons">
-	<div style="float:left;">
-	<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>
-	 </div>
-
-<div class="homepageText">
-<p class="hpText">
-	urop.io connects MIT students to the UROP supervisors and projects that are right for them. 
-</p>
-</div>
-</center>
+	</center>
+	<br></br>
+	<br></br>
 </body>
 </html>
 

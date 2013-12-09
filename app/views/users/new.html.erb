@@ -1,13 +1,7 @@
+<!--View to render the appropriate signup form-->
 <center><h3>Create new account</h3></center>
-
-	<% if user_type_string == 'student' %>
+<% if user_type_string == 'student' %>
 	<%= render 'student_signup_form' %>
-	<%= link_to 'Back', students_path %>
-
-
-	<% elsif user_type_string == 'supervisor' %>
-		<%= render 'supervisor_signup_form' %>
-	<%= link_to 'Back', supervisors_path %>
-
-	<% end %>
-
+<% elsif user_type_string == 'supervisor' %>
+	<%= render 'supervisor_signup_form' %>
+<% end %>
