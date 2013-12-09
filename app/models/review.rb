@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
 	validates :supervisor_rating, :presence => true
 	validates :time_commitment, :presence => true
 	validates :work_description, :presence => true
-	validates :anonymous, :presence =>true
+	validates :anonymous, :inclusion => {:in => [true, false]}
 
 	def self.search(search)
 		if search
@@ -34,4 +34,5 @@ class Review < ActiveRecord::Base
 			scoped
 		end
 	end
+
 end

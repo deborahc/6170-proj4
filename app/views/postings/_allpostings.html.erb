@@ -8,6 +8,7 @@
   <div class="span4">
     <h4> <%= link_to posting.title, posting_path(posting.id) %></h4>
     <p>Sponsor: <%= posting.supervisor.first_name %> <%= posting.supervisor.last_name %></p>
+    <p> Department: <%= posting.supervisor.department %></p>
     <p>Project description: <%= posting.description %></p>
     <p>Skills: <%= posting.skills %></p>
     <p>Funding type: <%= posting.funding_type %></p>
@@ -33,7 +34,7 @@
     <% if current_user.type == 'Student' %>
     <!-- Checks if user already submitted an application. A student can only have one application for a posting -->
     <% if UropApplication.where(:posting_id=>posting.id,:student_id=>current_user.id).exists? %>
-      <button class="btn btn-sm" data-toggle="modal" data-target="#apply-modal<%=posting.id%>" disabled="disabled">
+      <button class="btn btn-sm" disabled="disabled">
         Application Submitted
       </button>
     <% else %>

@@ -1,5 +1,4 @@
 <center><h3><%=current_user.first_name+" "+current_user.last_name%>'s UROP postings</h3></center>
-
 <% current_user.postings.each_slice(3) do |slice| %>
 <div class="row-fluid">
 <% slice.each do |posting| %>

@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   # GET /reviews.json
   def index
     if current_user.type == "Student"
-      @reviews = Review.all.search(params[:search])
+      @reviews = Review.all.search(params[:search]).order("supervisor_id")
     else
       @reviews = current_user.reviews
     end

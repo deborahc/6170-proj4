@@ -3,10 +3,23 @@
 	Supervisor: <%=@posting.supervisor.first_name%>&nbsp<%=@posting.supervisor.last_name%></h4></center>
 <div class="span4">
     <h4> <%= link_to @posting.title, posting_path(@posting.id) %></h4>
+    <p> Average Rating: <%= Supervisor.get_rating(@posting.supervisor.id) %> </p>
     <p>Sponsor: <%= @posting.supervisor.first_name %> <%= @posting.supervisor.last_name %></p>
     <p>Project description: <%= @posting.description %></p>
     <p>Skills: <%= @posting.skills %></p>
     <p>Funding type: <%= @posting.funding_type %></p>
+<% if current_user.type == "Student" %>
+<% if UropApplication.exists?(@posting.id,current_user.id) %>
+      <button class="btn btn-sm" disabled="disabled">
+        Application Submitted
+      </button>
+    <% else %>
+      <button class="btn btn-sm" data-toggle="modal" data-target="#apply-modal<%=@posting.id%>">
+        Apply Now
+      </button>
+    <% end %>
+    <%= render "urop_applications/form", :posting => @posting %>
+<% end %>
 </div>
 <div class="span8">
 <h4>UROP Reviews</h4>
