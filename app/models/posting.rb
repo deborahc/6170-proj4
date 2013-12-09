@@ -1,5 +1,5 @@
 class Posting < ActiveRecord::Base
-	has_many :urop_applications
+	has_many :urop_applications, dependent: :destroy
 	belongs_to :supervisor
 	
 	validates :title, :presence => true
