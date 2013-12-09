@@ -117,4 +117,9 @@ border: 1p solid #999;
 input.button:hover {
 background:#fff;
 color:#09C;
+
+}
+
+.nav-text{
+	color:blue;
 }
