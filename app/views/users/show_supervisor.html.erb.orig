@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="">
+	<br></br>
+	<div class="">
+		<p>
+		  <b>First Name:</b>
+		  <%= @user.first_name %>
+		</p>
+		<p>
+		  <b>Last Name:</b>
+		  <%= @user.last_name %>
+		</p>
+		<p>
+		  <b>Office:</b>
+		  <%= @user.office %>
+		</p>
+		<p>
+		  <b>Department:</b>
+		  <%= @user.department %>
+		</p>
+		<p>
+		  <b>Title:</b>
+		  <%= @user.title %>
+		</p>
+		<p>
+		  <b>Lab:</b>
+		  <%= @user.lab %>
+		</p>
+		<h5><%= link_to 'Resume', @user.resume.expiring_url %></h5>
+	</div>
+</div>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %>
+<<<<<<< HEAD
+<%= link_to 'Back to Postings', postings_path %>
+=======
+<%= link_to 'Back', postings_path %>
+>>>>>>> master
