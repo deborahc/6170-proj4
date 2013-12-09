@@ -90,10 +90,11 @@
 .editform {
 	background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
 	background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
-	margin:auto;
-	position:relative;
+	margin: auto;
+	float: center;
+	position: relative;
 	width: 550px;
-	height: 500px;
+	height: auto;
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 14px;
 	font-style: italic;
@@ -121,8 +122,11 @@
 	background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
 	margin:auto;
 	position:relative;
+	float: center;
+	margin-right: auto;
+	margin-left: auto;
 	width: 550px;
-	height: 500px;
+	height: auto;
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 24px;
 	font-style: italic;
@@ -154,7 +158,10 @@
 	margin:auto;
 	position:relative;
 	width: 550px;
-	height: 625px;
+	height: auto;
+	float: center;
+	margin-right: auto;
+	margin-left: auto;
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 14px;
 	font-style: italic;

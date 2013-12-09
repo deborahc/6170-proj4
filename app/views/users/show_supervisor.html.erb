@@ -2,9 +2,6 @@
 <div class="span3"></div>
 	<div class="profileHeader span8 showprofile">
 		<div class="inheritFont">
-			<br>
-			<br>
-			<br>
 			<p class="inheritFont">
 			  <b>First Name:</b>
 			  <%= @user.first_name %>
@@ -35,6 +32,7 @@
 			  <%= @user.lab %>
 			</p>
 		</div>
+		<br></br>
 		<h5 class="alignBottom">
 		<%= link_to 'Edit', edit_user_path(@user) %>
 		<%= link_to 'Back to Postings', postings_path %>
