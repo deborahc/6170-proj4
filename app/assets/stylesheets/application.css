@@ -12,13 +12,48 @@
  *= require_tree .
  */
 
+.homeForms {
+	margin-left: -300px;
+}
+
+.inline {
+	display: inline;
+	width: 500px;
+}
+
+.signupButtons {
+	display: inline;
+	float: left;
+	width: 600px;
+	height: 50px;
+}
+
+.homepageText {
+	font-family: sans-serif;
+	margin-left: 100px;
+	font-size: 16pt;
+	position : relative;
+	left: -25% ;
+	margin-top: 6%;
+	text-align: center;
+	margin-left : 420px;
+	width: 40% ;
+	font-style: lighter;
+}
+
+.hpText {
+	font-size: inherit;
+	line-height: 100%;
+	font-weight: bold;
+}
+
 .Nav{
 	background-color:  gray;
 }
 
 .homepage {
 	text-align: left;
-	background-image:url('http://www.blogmost.com/wp-content/uploads/2013/09/research-paper.jpg');
+	background-image:url('http://www.dfsrealestate.com/wp-content/themes/dfs/images/backgrounds/background_research_001.jpg');
 	background-size: 100% auto;
 	height : 100%;
 	width: 100%;

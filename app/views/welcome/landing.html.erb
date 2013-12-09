@@ -1,37 +1,38 @@
 <!--Urop.io Home Page -->
 		
 <html>
-<br></br>
+<br>
 <h1 class="centerize homeHeader">urop.io</h1>
-
 <br>
 <body class="homepage">
 	
+<div class="form-group">
 <%= form_tag sessions_path do %>
-<div class="form-group">
-	<%= text_field_tag :email, params[:email], placeholder: "Email address" %>
-</div>
-<div class="form-group">
-	<%= password_field_tag :password, nil, placeholder: "Password", :id => 'password-field' %>
-</div>
-<br>
-<br>
-<br>
-	<%= submit_tag "Log in", :class => 'btn btn-large btn-primary', :id => 'login-btn'%>
-</div>
-<% end %>
-<br>
-<br>
-<br>
-<h1>&nbsp&nbspSign up</h1>
-<div class="actions" id="sign_up_buttons">
-	<div style="float:left;">
-	<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>
-	 </div>
-
-	<div style="float:left;">
-	<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary', :method => :get) %>
+	<div>
+		<%= text_field_tag :email, params[:email], placeholder: "Email address" %>
+		<br>
+		<%= password_field_tag :password, nil, placeholder: "Password", :id => 'password-field' %>
+		<br>
+		<br>
+		<%= submit_tag "Log in", :class => 'btn btn-large btn-primary', :id => 'login-btn'%>
 	</div>
+	<div class="signupButtons">
+		<br>
+		<div class="inline">
+			<%= button_to('Student', new_student_path, :class => 'btn btn-large btn-primary', :method => :get) %>	
+		</div>
+		<div>
+			<%= button_to('Supervisor', new_supervisor_path, :class => 'btn btn-large btn-primary floatLeft', :method => :get) %>
+		</div>
+	</div>
+<% end %>
+</div>
+<br>
+
+<div class="homepageText">
+<p class="hpText">
+	urop.io connects MIT students to UROP supervisors and projects that are right for them. Though there are many parts on the path to obtain a UROP -- including find the right project, filling out the formal UROP application through the UROP office, and submitting onboarding documents for a particular department -- our app focuses on the first stage, that of finding the perfect match.
+</p>
 </div>
 </body>
 </html>
