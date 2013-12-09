@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     else
       @reviews = current_user.reviews
     end
+    @review = Review.new
   end
 
   # GET /reviews/1
