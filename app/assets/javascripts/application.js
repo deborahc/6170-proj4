@@ -20,18 +20,24 @@
 
 $(function() {
 
-$("#postings_search input").keyup(function() {
-  $.get($("#postings_search").attr("action"), $("#postings_search").serialize(), null, "script");
-  return false;
-});
+    $("#postings_search input").keyup(function() {
+      $.get($("#postings_search").attr("action"), $("#postings_search").serialize(), null, "script");
+      return false;
+  });
 
-$("#reviews_search input").keyup(function() {
-  $.get($("#reviews_search").attr("action"), $("#reviews_search").serialize(), null, "script");
-  return false;
-});
+    $("#reviews_search input").keyup(function() {
+      $.get($("#reviews_search").attr("action"), $("#reviews_search").serialize(), null, "script");
+      return false;
+  });
 
-$('input#student_major').typeahead( {name: 'majors', local: [ 
-    "Anthropology Course 21A",
+    $('input#student_major').typeahead( {name: 'majors', local: majors});
+    $('input#student_year').typeahead( {name: 'year', local: years });
+    $('input#supervisor_title').typeahead( {name: 'title', local: titles});
+    $('input#supervisor_lab').typeahead( {name: 'lab', local: labs });
+    $('input#supervisor_department').typeahead( {name: 'departments', local: majors });
+
+
+    var majors = ["Anthropology Course 21A",
     "Architecture Course 4",
     "Biological Engineering Course 20",
     "Biology Course 7",
@@ -66,76 +72,65 @@ $('input#student_major').typeahead( {name: 'majors', local: [
     "Real Estate - MSRED",
     "Undecided",
     "Urban Studies and Planning Course 11",
-    "Writing and Humanistic Studies Course 21W"] });
+    "Writing and Humanistic Studies Course 21W"];
 
-$('input#student_year').typeahead( {name: 'year', local: ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"] });
+    var years = ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
 
+    var titles = ["Professor", "Research scientist", "Graduate student", "Post-doc", "Principal Investigator"];
 
-$('input#supervisor_title').typeahead( {name: 'title', local: ["Professor", "Research scientist", "Graduate student", "Post-doc", "Principal Investigator"] });
-
-$('input#supervisor_lab').typeahead( {name: 'lab', local: ["ALFA",
-"Center for Biological and Computational Learning",
-"Classroom Learning Partner",
-"Clinical Decision Making Group",
-"Computational Biology",
-"Computational Cognitive Science Group",
-"Computational Genomics",
-"Computer Graphics Group",
-"Decentralized Information Group",
-"Distributed Robotics Lab",
-"Dynamic Languages Group",
-"Haystack",
-"Imagination, Computation, and Expression Laboratory",
-"Interactive Robotics Group",
-"Infolab",
-"Learning and Intelligent Systems",
-"Medical Vision Group",
-"Model-Based Embedded and Robotics Systems Group",
-"Multimodal Understanding Group",
-"Project Aries",
-"Project on Mathematics and Computation",
-"Robot Locomotion Group",
-"Robotics, Vision and Sensor Networks",
-"Spoken Language Systems Group",
-"Stochastic Systems Group",
-"Vision",
-"Vision Interface Project",
-"World Wide Web Consortium",
-
-
-"Advanced Network Architecture",
-"Computation Structures Group",
-"Computer Architecture Group",
-"Computer Systems Security",
-"Cryptography and Information Security Group",
-"Database Group",
-"Haystack",
-"Humans and Automation Lab",
-"Networks and Mobile Systems",
-"Parallel and Distributed Operating Systems",
-"Program Analysis and Compilation Group",
-"Programming Languages and Software Engineering",
-"Programming Methodology Group",
-"Project on Mathematics and Computation",
-"Software Design Group",
-"Supertech Research Group",
-"User Interface Design Group",
-
-"Algorithms Group",
-"Complexity Theory Group",
-"Computation and Biology Group",
-"Cryptography and Information Security Group",
-"Database Group",
-"Haystack",
-"Quantum Information Science",
-"Supertech Research Group",
-"Theory of Distributed Systems Group",
-"CSAIL"] });
-
-
-
-
-
-
-
+    var labs = ["ALFA",
+    "Center for Biological and Computational Learning",
+    "Classroom Learning Partner",
+    "Clinical Decision Making Group",
+    "Computational Biology",
+    "Computational Cognitive Science Group",
+    "Computational Genomics",
+    "Computer Graphics Group",
+    "Decentralized Information Group",
+    "Distributed Robotics Lab",
+    "Dynamic Languages Group",
+    "Haystack",
+    "Imagination, Computation, and Expression Laboratory",
+    "Interactive Robotics Group",
+    "Infolab",
+    "Learning and Intelligent Systems",
+    "Medical Vision Group",
+    "Model-Based Embedded and Robotics Systems Group",
+    "Multimodal Understanding Group",
+    "Project Aries",
+    "Project on Mathematics and Computation",
+    "Robot Locomotion Group",
+    "Robotics, Vision and Sensor Networks",
+    "Spoken Language Systems Group",
+    "Stochastic Systems Group",
+    "Vision",
+    "Vision Interface Project",
+    "World Wide Web Consortium",
+    "Advanced Network Architecture",
+    "Computation Structures Group",
+    "Computer Architecture Group",
+    "Computer Systems Security",
+    "Cryptography and Information Security Group",
+    "Database Group",
+    "Haystack",
+    "Humans and Automation Lab",
+    "Networks and Mobile Systems",
+    "Parallel and Distributed Operating Systems",
+    "Program Analysis and Compilation Group",
+    "Programming Languages and Software Engineering",
+    "Programming Methodology Group",
+    "Project on Mathematics and Computation",
+    "Software Design Group",
+    "Supertech Research Group",
+    "User Interface Design Group",
+    "Algorithms Group",
+    "Complexity Theory Group",
+    "Computation and Biology Group",
+    "Cryptography and Information Security Group",
+    "Database Group",
+    "Haystack",
+    "Quantum Information Science",
+    "Supertech Research Group",
+    "Theory of Distributed Systems Group",
+    "CSAIL"]
 });
