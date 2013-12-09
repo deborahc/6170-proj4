@@ -12,8 +12,9 @@ one:
   overall_rating: 10
   supervisor_rating: 10
   time_commitment: 12
-  recommended: true
-  posting_id: 1
+  expected: "Yes"
+  work_description: "Coding."
+  anonymous: "No"
 
 two:
   id: 2
@@ -23,8 +24,9 @@ two:
   overall_rating: 9
   supervisor_rating: 10
   time_commitment: 12
-  recommended: true
-  posting_id: 2
+  expected: "Yes"
+  work_description: "Coding."
+  anonymous: "No"
 
 three:
   id: 3
@@ -34,8 +36,9 @@ three:
   overall_rating: 10
   supervisor_rating: 9
   time_commitment: 10
-  recommended: true
-  posting_id: 4
+  expected: "Yes"
+  work_description: "Coding."
+  anonymous: "No"
 
 four:
   id: 4
@@ -45,5 +48,6 @@ four:
   overall_rating: 9
   supervisor_rating: 9
   time_commitment: 10
-  recommended: true
-  posting_id: 5
+  expected: "Yes"
+  work_description: "Coding."
+  anonymous: "No"

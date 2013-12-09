@@ -1,44 +1,45 @@
 <!-- Form partial for creating new postings-->
-<%= form_for(@posting) do |f| %>
-  <% if @posting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@posting.errors.count, "error") %> prohibited this posting from being saved:</h2>
+<div class="editform">
+  <%= form_for(@posting) do |f| %>
+    <% if @posting.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@posting.errors.count, "error") %> prohibited this posting from being saved:</h2>
 
-      <ul>
-      <% @posting.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @posting.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <% f.hidden_field :open, :value => true %>
+      <div class="formMargin">
+        <div>
+          <%= f.label :"Posting Title" %>
+          <%= f.text_field :title %>
+        </div>
+
+        <div>
+          <%= f.label :"Posting Description" %>
+          <%= f.text_area :description %>
+        </div>
+
+        <div>
+          <%= f.label :"Posting Skills" %>
+          <%= f.text_field :skills %>
+        </div>
+
+        <div>
+          <%= f.label :"Posting Funding Type" %>
+          <%= f.text_field :funding_type %>
+        </div>
+
+        <div>
+          <%= f.hidden_field :supervisor_id, value: current_user.id %>
+        </div>
+    </div>
+    <div class="actions centerize">
+      <%= f.submit "Submit New Posting"%>
     </div>
   <% end %>
-    <% f.hidden_field :open, :value => true %>
-    <div>
-      <%= f.label :"Posting Title" %>
-      <%= f.text_field :title %>
-    </div>
-
-    <div>
-      <%= f.label :"Posting Description" %>
-      <%= f.text_area :description %>
-    </div>
-
-    <div>
-      <%= f.label :"Posting Skills" %>
-      <%= f.text_field :skills %>
-    </div>
-
-    <div>
-      <%= f.label :"Posting Funding Type" %>
-      <%= f.text_field :funding_type %>
-    </div>
-
-    <div>
-      <%= f.hidden_field :supervisor_id, value: current_user.id %>
-    </div>
-
-
-  <div class="actions">
-    <%= f.submit "Submit New Posting"%>
-  </div>
-<% end %>
-
+</div>
