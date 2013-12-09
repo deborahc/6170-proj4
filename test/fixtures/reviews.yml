@@ -13,7 +13,6 @@ one:
   supervisor_rating: 10
   time_commitment: 12
   expected: "Yes"
-  posting_id: 1
   work_description: "Coding."
   anonymous: "No"
 
@@ -26,7 +25,6 @@ two:
   supervisor_rating: 10
   time_commitment: 12
   expected: "Yes"
-  posting_id: 2
   work_description: "Coding."
   anonymous: "No"
 
@@ -39,7 +37,6 @@ three:
   supervisor_rating: 9
   time_commitment: 10
   expected: "Yes"
-  posting_id: 4
   work_description: "Coding."
   anonymous: "No"
 
@@ -52,6 +49,5 @@ four:
   supervisor_rating: 9
   time_commitment: 10
   expected: "Yes"
-  posting_id: 5
   work_description: "Coding."
   anonymous: "No"
