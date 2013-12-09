@@ -8,7 +8,7 @@ NlujanDeborahcYtungDbgeorgeFinal::Application.routes.draw do
 
   resources :students, :controller => 'users', :type => 'Student'
   resources :supervisors, :controller => 'users', :type => 'Supervisor'
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"

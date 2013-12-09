@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+.Nav{
+	background-color:  gray;
+}
+
 .homepage {
 	text-align: left;
 	background-image:url('http://www.blogmost.com/wp-content/uploads/2013/09/research-paper.jpg');
@@ -35,7 +39,56 @@
 	border-width: medium;
 	width: 50%;
 }
-.nav-text{
-	padding-top:10px;
-	color:white;
+
+.Note {
+	color: gray
+}
+
+.float_left {
+	float: left;
+}
+
+.editform {
+background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
+background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+margin:auto;
+position:relative;
+width: 550px;
+height: 450px;
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 14px;
+font-style: italic;
+line-height: 24px;
+font-weight: bold;
+color: #09C;
+text-decoration: none;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:10px;
+border: 1px solid #999;
+border: inset 1px solid #333;
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+input.button {
+width:100px;
+position:absolute;
+right:20px;
+bottom:20px;
+background:#09C;
+color:#fff;
+font-family: Tahoma, Geneva, sans-serif;
+height:30px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+border: 1p solid #999;
+}
+input.button:hover {
+background:#fff;
+color:#09C;
+
 }

@@ -15,6 +15,7 @@
       <%= f.label :first_name %><br />
       <%= f.text_field :first_name %>
     </p>
+    
     <p>
       <%= f.label :last_name %><br />
       <%= f.text_field :last_name %>
@@ -25,18 +26,15 @@
       <%= f.text_field :title %>
     </p>
 
-
     <p>
       <%= f.label :lab %><br />
       <%= f.text_field :lab %>
     </p>
 
-
     <p>
       <%= f.label :department %><br />
       <%= f.text_field :department %>
     </p>
-
 
     <p>
       <%= f.label :office %><br />
@@ -58,6 +56,6 @@
       <%= f.password_field :password_confirmation %>
     </p>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Sign up!"%>
   </div>
 <% end %>

@@ -60,3 +60,5 @@ gem 'rest-client'
 gem 'paperclip'
 gem 'aws-sdk'
 
+# Use best_in_place for in-place profile page editing
+gem 'best_in_place', github: 'bernat/best_in_place'
