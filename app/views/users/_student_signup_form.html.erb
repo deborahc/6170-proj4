@@ -1,3 +1,5 @@
+
+<div class="signupform">
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -11,46 +13,63 @@
     </div>
   <% end %>
 
-    <p>
-      <%= f.label :first_name %><br />
+<div class="">
+      <%= f.label :first_name %>
       <%= f.text_field :first_name %>
-    </p>
-    <p>
-      <%= f.label :last_name %><br />
+</div>
+</p>
+
+<div class="">
+
+      <%= f.label :last_name %>
       <%= f.text_field :last_name %>
-    </p>
-    <p>
+</div>
+</p>
+
+<div class="">
+
       <%= f.label :email %><p class="Note">Please use your mit.edu address</p>
       <%= f.text_field :email %>
-    </p>
+      </div>
+</p>
+<div class="">
 
-    <p>
-      <%= f.label :year %><br />
+      <%= f.label :year %>
       <%= f.text_field :year %>
-    </p>
+            </div>
+</p>
 
-    <p>
-      <%= f.label :major %><br />
+<div class="">
+
+      <%= f.label :major %>
       <%= f.text_field :major %>
-    </p>
+                  </div>
+</p>
 
-    <p>
-      <%= f.label :resume %><p style="color:gray">PDFs only</p><br />
+<div class="">
+
+      <%= f.label :resume, "PDFs only" %>
       <%= f.file_field :resume %>
-    </p>
+                        </div>
+</p>
 
-    <p>
-      <%= f.label :password %><br />
+<div class="">
+
+      <%= f.label :password %>
       <%= f.password_field :password %>
-    </p>
+                              </div>
+</p>
 
-    <p>
-      <%= f.label :password_confirmation %><br />
+<div class="">
+
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
-    </p>
+                              </div>
 
+</p>
 
   <div class="actions">
     <%= f.submit "Sign up!"%>
   </div>
 <% end %>
+</div>

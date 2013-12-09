@@ -1,8 +1,12 @@
-<center><h1>Listing reviews</h1></center><br>
-<!-- search bar -->
+<center><h1>UROP Reviews</h1></center><br>
+<!-- 
+	search bar 
+Only display search bar for student users
+-->
+<% if current_user.type == "Student" %>
 <%= form_tag reviews_path, :method => 'get', :id => "reviews_search" do %>
  <%= text_field_tag :search, params[:search], type: "text" %>
 <%= submit_tag "Filter by Supervisor", :name => nil, class: "btn btn-default" %>
 <% end %>
-
+<% end %>
 <div id="reviews"><%= render "allreviews" %></div>

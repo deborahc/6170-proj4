@@ -1,31 +1,50 @@
-<h2>Updating Student Profile</h2>
+<center><h3>Update your profile</h3></center>
 
 <!-- Form partial for editing student information -->
 <div class="editform">
 	<%=form_for @user do |f| %>
-		<div class="">
-		<%= f.label :first_name %><br>
+	<br>
+	<div class="">
+		<%= f.label :first_name %>
 		<%= f.text_field :first_name %>
-		</div>
-
-		<div class="">
-		<%= f.label :last_name %><br>
+	</div>
+	<br>
+	<div class="">
+		<%= f.label :last_name %>
 		<%= f.text_field :last_name %>
-		</div>
+	</div>
 
-		<div class="">
-		<%= f.label :year %><br>
+	<br>
+	<div class="">
+		<%= f.label :year %>
 		<%= f.text_field :year %>
-		</div>
+	</div>
 
-		<div class="">
-		<%= f.label :major %><br>
+	<br>
+	<div class="">
+		<%= f.label :major %>
 		<%= f.text_field :major %>
-		</div>
+	</div><br>
 
-		<%= f.submit "Submit"%>
+
+	<% if !@user.resume.content_type.nil? %>		
+	<div class="">
+		<%= f.label :resume, "Update your resume" %>
+		<%= f.file_field :resume %>
+	</div><br>
+
+	<% else %>
+	<div class="">
+		<%= f.label :resume, "Upload a resume" %>
+		<%= f.file_field :resume %>
+	</div><br>
+	<% end %>
+
+	<%= f.submit "Submit"%>
 	<% end %>
 </div>
 
+
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', root_path %>
+
