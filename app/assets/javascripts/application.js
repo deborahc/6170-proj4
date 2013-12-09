@@ -33,6 +33,7 @@ $(function() {
   });
 
 
+
 // *****Autocomplete data*********// 
     var years = ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
 
@@ -138,5 +139,8 @@ $(function() {
     $('input#supervisor_title').typeahead( {name: 'title', local: titles});
     $('input#supervisor_lab').typeahead( {name: 'labs', local: labs });
     $('input#supervisor_department').typeahead( {name: 'department', local: majors });
+
+    $('.dropdown-toggle').dropdown();   
+
 
 });

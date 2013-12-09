@@ -43,8 +43,10 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     if @user.type == 'Student'
+      #redirect_to edit_student_path(@user)
       render :action => 'edit_student'
     elsif @user.type == 'Supervisor'
+      #edirect_to edit_supervisor_path(@user)
       render :action => 'edit_supervisor'
     end
   end
@@ -80,8 +82,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to postings_path, notice: 'User was successfully updated.' }
         format.json { head :no_content }
+
       else
         format.html { render action: 'edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }

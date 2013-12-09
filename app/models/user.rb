@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 					  format: {with: VALID_EMAIL_REGEX}
 
 	# Sanitize input before save
-	before_save :clean_html
+	#before_save :clean_html
 
 	# Write custom validation method, because paperclip's custom message feature isn't flexible enough
 	def resume_is_pdf
