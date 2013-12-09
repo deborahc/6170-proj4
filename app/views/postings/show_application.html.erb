@@ -18,7 +18,7 @@
 		<td><%= application.student.year %></td>
 		<td><%= application.student.email%></td>
 		<% if !application.student.resume.content_type.nil? %>
-			<td><%= link_to 'Resume', @user.resume.expiring_url %></td>
+			<td><%= link_to 'Resume', application.student.resume.expiring_url %></td>
 		<% else %>
 			<td>No resume uploaded</td>
  		<% end %>
