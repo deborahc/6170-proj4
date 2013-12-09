@@ -20,6 +20,8 @@
 
 $(function() {
 
+// *****Triggers search, for review and postings*********// 
+
     $("#postings_search input").keyup(function() {
       $.get($("#postings_search").attr("action"), $("#postings_search").serialize(), null, "script");
       return false;
@@ -30,12 +32,9 @@ $(function() {
       return false;
   });
 
-    $('input#student_major').typeahead( {name: 'majors', local: majors});
-    $('input#student_year').typeahead( {name: 'year', local: years });
-    $('input#supervisor_title').typeahead( {name: 'title', local: titles});
-    $('input#supervisor_lab').typeahead( {name: 'lab', local: labs });
-    $('input#supervisor_department').typeahead( {name: 'departments', local: majors });
 
+// *****Autocomplete data*********// 
+    var years = ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
 
     var majors = ["Anthropology Course 21A",
     "Architecture Course 4",
@@ -132,5 +131,12 @@ $(function() {
     "Quantum Information Science",
     "Supertech Research Group",
     "Theory of Distributed Systems Group",
-    "CSAIL"]
+    "CSAIL"];
+
+    $('input#student_major').typeahead( {name: 'major', local: majors});
+    $('input#student_year').typeahead( {name: 'year', local: years });
+    $('input#supervisor_title').typeahead( {name: 'title', local: titles});
+    $('input#supervisor_lab').typeahead( {name: 'labs', local: labs });
+    $('input#supervisor_department').typeahead( {name: 'department', local: majors });
+
 });
