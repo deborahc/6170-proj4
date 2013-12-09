@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     if params[:type] == 'Student'
       render :action => 'show_student'
     elsif params[:type] == 'Supervisor'
-
       render :action => 'show_supervisor'
     end
   end
@@ -42,6 +41,19 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
+    if @user.type == 'Student'
+      render :action => 'edit_student'
+    elsif @user.type == 'Supervisor'
+      render :action => 'edit_supervisor'
+    end
+  end
+
+
+  def edit_student
+  end
+
+  def edit_supervisor
   end
 
   # POST /users

@@ -1,0 +1,31 @@
+<h2>Updating Student Profile</h2>
+
+<!-- Form partial for editing student information -->
+<div class="editform">
+	<%=form_for @user do |f| %>
+		<div class="">
+		<%= f.label :first_name %><br>
+		<%= f.text_field :first_name %>
+		</div>
+
+		<div class="">
+		<%= f.label :last_name %><br>
+		<%= f.text_field :last_name %>
+		</div>
+
+		<div class="">
+		<%= f.label :year %><br>
+		<%= f.text_field :year %>
+		</div>
+
+		<div class="">
+		<%= f.label :major %><br>
+		<%= f.text_field :major %>
+		</div>
+
+		<%= f.submit "Submit"%>
+	<% end %>
+</div>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', root_path %>

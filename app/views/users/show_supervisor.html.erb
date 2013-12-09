@@ -1,17 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<div class="profileHeader">
+<div class="">
 	<br></br>
-	<div class="profileInfo">
-		<h4>About me</h4>
-		<h5>Title: <%= @user.title %></h5>
-		<h5>Lab: <%= @user.lab %></h5>
-		<h5>Department: <%= @user.department %></h5>
-		<h5>Email Address: <%= @user.email %></h5>
-		<h5>Office: <%= @user.office %></h5>
+	<div class="">
+		<p>
+		  <b>First Name:</b>
+		  <%= @user.first_name %>
+		</p>
+		<p>
+		  <b>Last Name:</b>
+		  <%= @user.last_name %>
+		</p>
+		<p>
+		  <b>Office:</b>
+		  <%= @user.office %>
+		</p>
+		<p>
+		  <b>Department:</b>
+		  <%= @user.department %>
+		</p>
+		<p>
+		  <b>Title:</b>
+		  <%= @user.title %>
+		</p>
+		<p>
+		  <b>Lab:</b>
+		  <%= @user.lab %>
+		</p>
+		<h5><%= link_to 'Resume', @user.resume.expiring_url %></h5>
 	</div>
 </div>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %>
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back to Postings', postings_path %>
