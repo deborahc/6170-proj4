@@ -1,41 +1,45 @@
-<h2>Updating Supervisor Profile</h2>
+<center><h2>Update your profile</h2></center>
 
 <!-- Form partial for editing supervisor information -->
 <div class="editform">
 	<%=form_for @user do |f| %>
-			<div class="">
-			<%= f.label :first_name %><br>
-			<%= f.text_field :first_name %>
-			</div>
+	<div class="">
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name %>
+	</div>
+	<br>
+	<div class="">
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name %>
+	</div>
 
-			<div class="">
-			<%= f.label :last_name %><br>
-			<%= f.text_field :last_name %>
-			</div>
+	<br>
+	<div class="">
+		<%= f.label :office %>
+		<%= f.text_field :office %>
+	</div>
 
-			<div class="">
-			<%= f.label :office %><br>
-			<%= f.text_field :office %>
-			</div>
+	<br>
+	<div class="">
+		<%= f.label :department %>
+		<%= f.text_field :department %>
+	</div>
 
-			<div class="">
-			<%= f.label :department %><br>
-			<%= f.text_field :department %>
-			</div>
+	<br>
+	<div class="">
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
 
-			<div class="">
-			<%= f.label :title %><br>
-			<%= f.text_field :title %>
-			</div>
+	<br>
+	<div class="">
+		<%= f.label :lab %>
+		<%= f.text_field :lab %>
+	</div>
 
-			<div class="">
-			<%= f.label :lab %><br>
-			<%= f.text_field :lab %>
-			</div>
-
-			<%= f.submit "Submit"%>
-			</p>
-	<% end %>
+	<%= f.submit "Submit"%>
+</p>
+<% end %>
 </div>
 
 <%= link_to 'Show', @user %> |
