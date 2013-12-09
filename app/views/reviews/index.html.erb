@@ -5,8 +5,12 @@ Only display search bar for student users
 -->
 <% if current_user.type == "Student" %>
 <%= form_tag reviews_path, :method => 'get', :id => "reviews_search" do %>
- <%= text_field_tag :search, params[:search], type: "text" %>
+<div class="input-group">
+ <%= text_field_tag :search, params[:search], class: "form-control",style:"height:30px",type: "text" %>
+ <div class="input-group-btn">
 <%= submit_tag "Filter by Supervisor", :name => nil, class: "btn btn-default" %>
+</div>
+</div>
 <% end %>
 <% end %>
 <div id="reviews"><%= render "allreviews" %></div>
