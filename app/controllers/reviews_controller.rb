@@ -1,3 +1,4 @@
+# Reviews Controller
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
@@ -5,10 +6,12 @@ class ReviewsController < ApplicationController
   # GET /reviews.json
   def index
     if current_user.type == "Student"
-      @reviews = Review.all.search(params[:search]).order("supervisor_id")
+      @reviews = Review.all.search(params[:search])
+      
     else
       @reviews = current_user.reviews
     end
+    @review = Review.new
   end
 
   # GET /reviews/1

@@ -1,3 +1,4 @@
+# User class representation
 class User < ActiveRecord::Base
 	# User has a Rails secure password and resume pdf file
 	has_secure_password
@@ -28,6 +29,10 @@ class User < ActiveRecord::Base
 					  :uniqueness => true,
 					  format: {with: VALID_EMAIL_REGEX}
 
+
+	# Sanitize input before save
+	#before_save :clean_html
+
 	# Write custom validation method, because paperclip's custom message feature isn't flexible enough
 	def resume_is_pdf
 		if self.resume?
@@ -37,6 +42,7 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	# Asserts that the uploaded resume is smaller than 4 megabytes in size
 	def resume_is_smaller_than_four_megabytes
 		if self.resume?
 	  		if self.resume.size > 4.megabytes

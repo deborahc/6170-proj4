@@ -63,4 +63,4 @@ gem 'aws-sdk'
 gem 'best_in_place', github: 'bernat/best_in_place'
 
 # Sanitize inputs for security measures
-gem 'sanitize'
+#gem 'sanitize'

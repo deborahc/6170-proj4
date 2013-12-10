@@ -1,3 +1,4 @@
+# UROP Application Controller
 class UropApplicationsController < ApplicationController
 	before_action :set_urop_application, only: [:destroy]
 	before_action :can_create, only: [:new, :create]
@@ -75,6 +76,4 @@ class UropApplicationsController < ApplicationController
           redirect_to urop_applications_path, :notice => "You can't access this page"
       end
     end
-
-
 end

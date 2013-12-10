@@ -1,3 +1,11 @@
+<% if current_user.type == "Student" %>
+<a href="#" data-toggle="modal" data-target="#review-modal" style="margin:20px; float:right;"><button class="btn btn-primary btn-lg">
+          Write a Review
+</button></a>
+<%= render "reviews/form" %>
+<%end%>
+
+
 <center><h3>UROP Reviews</h3></center><br>
 <!-- 
 	search bar 

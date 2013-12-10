@@ -1,16 +1,15 @@
+# Postings Controller
 class PostingsController < ApplicationController
   before_action :set_posting, only: [:show, :edit, :update, :destroy]
-
-
   before_action :check_owner, only: [:edit, :update, :destroy]
   before_action :can_create, only: [:new, :create]
+
   # GET /postings
   # GET /postings.json
   def index
     @postings = Posting.all.search(params[:search], params[:category])
     @review = Review.new
     @urop_application = UropApplication.new
-
   end
 
   # GET /postings/1
@@ -39,7 +38,6 @@ class PostingsController < ApplicationController
   # POST /postings.json
   def create
     @posting = Posting.new(posting_params)
-
     respond_to do |format|
       if @posting.save
         format.html { redirect_to postings_path, notice: 'Posting was successfully created.' }
